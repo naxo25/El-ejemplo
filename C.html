@@ -1,0 +1,1739 @@
+
+<!DOCTYPE html>
+<html lang="es-EC">
+
+<head>
+    <meta charset="UTF-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-da56d98a74a936ee0ab",applicationID:"465590843"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(7),c=e(8),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(9);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e){return!(!e||!e.protocol||"file:"===e.protocol)}t.exports=r},{}],4:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(6),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],5:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],6:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],7:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],8:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],9:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(7),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=x.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+x.offset],null,"api"),c("timing",["load",n]);var r=l.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+x.offset],null,"api")}var a=e(2),c=e("handle"),f=e(7),u=e("ee"),s=e(5),d=e(3),p=window,l=p.document,m="addEventListener",v="attachEvent",g=p.XMLHttpRequest,w=g&&g.prototype;if(d(p.location)){NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:g,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1208.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:b,userAgent:s};e(1),e(4),l[m]?(l[m]("DOMContentLoaded",o,!1),p[m]("load",r,!1)):(l[v]("onreadystatechange",i),p[v]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0}},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(8),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+    <meta name="viewport" content="width=device-width" />
+    <meta name='robots' content='noindex, follow, nofollow' />
+
+    <!-- This site is optimized with the Yoast SEO plugin v16.1.1 - https://yoast.com/wordpress/plugins/seo/ -->
+    <title>El Comercio - Noticias del Ecuador y del mundo</title>
+    <meta name="description" content="Noticias de Ecuador y del mundo. El Comercio es el sitio web del Diario más comprometido con la gente de Ecuador. Publica contenido de deportes, entretenimiento, negocios, política, opinión y del mundo. Además, producción interactiva y multimedia de video, audio, storytelling, crowdsourcing y periodismo de datos." />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="El Comercio - Noticias del Ecuador y del mundo" />
+    <meta property="og:description" content="Noticias de Ecuador y del mundo. El Comercio es el sitio web del Diario más comprometido con la gente de Ecuador. Publica contenido de deportes, entretenimiento, negocios, política, opinión y del mundo. Además, producción interactiva y multimedia de video, audio, storytelling, crowdsourcing y periodismo de datos." />
+    <meta property="og:url" content="https://ec.mediatiquepress.com/" />
+    <meta property="og:site_name" content="El Comercio [p]" />
+    <meta property="article:modified_time" content="2021-04-05T21:02:57+00:00" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:label1" content="Est. reading time">
+    <meta name="twitter:data1" content="1 minuto">
+    <script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://ec.mediatiquepress.com/#website","url":"https://ec.mediatiquepress.com/","name":"El Comercio [p]","description":"Noticias del Ecuador y del mundo","potentialAction":[{"@type":"SearchAction","target":"https://ec.mediatiquepress.com/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"es-EC"},{"@type":"WebPage","@id":"https://ec.mediatiquepress.com/#webpage","url":"https://ec.mediatiquepress.com/","name":"El Comercio - Noticias del Ecuador y del mundo","isPartOf":{"@id":"https://ec.mediatiquepress.com/#website"},"datePublished":"2021-03-23T18:47:35+00:00","dateModified":"2021-04-05T21:02:57+00:00","description":"Noticias de Ecuador y del mundo. El Comercio es el sitio web del Diario m\u00e1s comprometido con la gente de Ecuador. Publica contenido de deportes, entretenimiento, negocios, pol\u00edtica, opini\u00f3n y del mundo. Adem\u00e1s, producci\u00f3n interactiva y multimedia de video, audio, storytelling, crowdsourcing y periodismo de datos.","breadcrumb":{"@id":"https://ec.mediatiquepress.com/#breadcrumb"},"inLanguage":"es-EC","potentialAction":[{"@type":"ReadAction","target":["https://ec.mediatiquepress.com/"]}]},{"@type":"BreadcrumbList","@id":"https://ec.mediatiquepress.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://ec.mediatiquepress.com/","url":"https://ec.mediatiquepress.com/","name":"Home"}}]}]}</script>
+    <!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//ec.mediatiquepress.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="El Comercio [p] &raquo; Feed" href="https://ec.mediatiquepress.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="El Comercio [p] &raquo; RSS de los comentarios" href="https://ec.mediatiquepress.com/comments/feed/" />
+        <script type="text/javascript">
+            window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/ec.mediatiquepress.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.7.1"}};
+            !function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+        </script>
+        <style type="text/css">
+img.wp-smiley,
+img.emoji {
+    display: inline !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: 1em !important;
+    width: 1em !important;
+    margin: 0 .07em !important;
+    vertical-align: -0.1em !important;
+    background: none !important;
+    padding: 0 !important;
+}
+</style>
+    <link rel='stylesheet' id='wp-block-library-css'  href='https://ec.mediatiquepress.com/wp-includes/css/dist/block-library/style.min.css?ver=5.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='newspack-blocks-block-styles-stylesheet-css'  href='https://ec.mediatiquepress.com/wp-content/plugins/newspack-blocks/dist/block_styles.css?ver=1.22.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-parsely-style-css'  href='https://ec.mediatiquepress.com/wp-content/plugins/wp-parsely/wp-parsely.css?ver=1619106138' type='text/css' media='all' />
+<link rel='stylesheet' id='ec-style-css'  href='https://ec.mediatiquepress.com/wp-content/themes/elcomercio/style.css?ver=5.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='ec-vendor-css-css'  href='https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/styles/vendor_04f45070.css' type='text/css' media='all' />
+<link rel='stylesheet' id='ec-main-css-css'  href='https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/styles/main_04f45070.css' type='text/css' media='all' />
+<script type='text/javascript' src='https://ec.mediatiquepress.com/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://ec.mediatiquepress.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<link rel="https://api.w.org/" href="https://ec.mediatiquepress.com/wp-json/" /><link rel="alternate" type="application/json" href="https://ec.mediatiquepress.com/wp-json/wp/v2/pages/600001" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://ec.mediatiquepress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://ec.mediatiquepress.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.7.1" />
+<link rel='shortlink' href='https://ec.mediatiquepress.com/' />
+<link rel="alternate" type="application/json+oembed" href="https://ec.mediatiquepress.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fec.mediatiquepress.com%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://ec.mediatiquepress.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fec.mediatiquepress.com%2F&#038;format=xml" />
+
+<!-- BEGIN wp-parsely Plugin Version 2.4.1 -->
+<meta name="wp-parsely_version" id="wp-parsely_version" content="2.4.1"/>
+                <meta name="parsely-title" content="El Comercio [p]"/>
+            <meta name="parsely-link" content="https://ec.mediatiquepress.com"/>
+            <meta name="parsely-type" content="sectionpage"/>
+            <meta name="parsely-image-url" content=""/>
+            <meta name="parsely-pub-date" content=""/>
+            <meta name="parsely-section" content=""/>
+            <meta name="parsely-tags" content=""/>
+
+            <!-- END wp-parsely Plugin Version 2.4.1 -->
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>       <style type="text/css" id="wp-custom-css">
+            .home-heading--primary {
+    z-index: 100;
+      display: block !important;
+}       </style>
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6323223-1"></script>
+            <script src="https://octogonebids.com/v3/elcomercio.com/octogonebid.js"></script>
+        <script>window.htlad_is_enabled = true;</script>
+        <script async src="https://boot.pbstck.com/v1/tag/89b976e8-43ca-4135-91c6-c5bd2d3c5288"></script>
+    <script>
+        /**
+         * Google Analytics
+         */
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-6323223-1');
+    </script>
+    <script type="text/javascript">
+    window._taboola = window._taboola || [];
+    _taboola.push({article:'auto'});
+    !function (e, f, u, i) {
+        if (!document.getElementById(i)){
+        e.async = 1;
+        e.src = u;
+        e.id = i;
+        f.parentNode.insertBefore(e, f);
+        }
+    }(document.createElement('script'),
+    document.getElementsByTagName('script')[0],
+    '//cdn.taboola.com/libtrc/ned-elcomerciocom/loader.js',
+    'tb_loader_script');
+    if(window.performance && typeof window.performance.mark == 'function')
+        {window.performance.mark('tbl_ic');}
+    </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-storage.js"></script>  
+    <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body class="home page-template-default page page-id-600001 page-parent">
+    <header class="site-header">
+        <div class="container">
+            <div class="site-header__menu">
+                <div>
+                    <button class="btn text-uppercase" data-action="show-submenu" data-target="productos">Productos</button>
+                    <button class="btn text-uppercase" data-action="show-submenu" data-target="servicios">Servicios</button>
+                </div>
+                                                <div class="site-header__icons d-flex align-items-center">
+                    <a href="http://www.clubdesuscriptores.com.ec/" class="site-icon__club" target="_blank">CLUB</a>
+                    <a href="https://pdf.elcomercio.com/" target="_blank"><i class="fa fa-lg fa-newspaper-o"></i></a>
+                    <button><i class="fa fa-lg fa-share-alt"></i></button>
+                    <div id='app' class="site-header__search">
+    <form method="get" action="https://ec.mediatiquepress.com/">
+        <input type="text" class="form-control form-control-sm" name="s" placeholder="Buscar" value="">
+    </form>
+    <button class="btn" type="button" data-action="show-search"><i class="fa fa-lg fa-search"></i></button>
+    <span> | Bienvenido {{ datosUser.name }} | </span>
+     <input type="submit" name="close" @click='logoutUser' :value="user ? 'Logout' : 'Registrate o inicia sesión'" style="border: 0; background: white; color: blue">
+</div>
+                </div>
+            </div>
+            <div class="site-header__submenus">
+                <ul class="site-header__submenu site-header__submenu--productos">
+                    <li><a href="http://www.revistalideres.ec/" target="_blank">Revista Líderes</a></li>
+                    <li><a href="http://www.revistafamilia.com.ec/" target="_blank">Revista Familia</a></li>
+                    <li><a href="http://suplementos.elcomercio.com/" target="_blank">Suplementos</a></li>
+                    <li><a href="/afull/">Afull</a></li>
+                    <li><a href="/narices-frias/">Narices Frías</a></li>
+                    <li><a href="/guaifai/">Guaifai</a></li>
+                    <li><a href="/sabores/">Sabores</a></li>
+                </ul>
+                <ul class="site-header__submenu site-header__submenu--servicios">
+                    <li><a href="http://gec.ec/" target="_blank">Tarifario</a></li>
+                    <li><a href="/suscripcion/">Suscripción</a></li>
+                    <li><a href="/rss/">RSS</a></li>
+                    <li><a href="/apps-moviles/">App móviles</a></li>
+                    <li><a href="/ediciones-anteriores/">Ediciones Anteriores</a></li>
+                    <li><a href="#">Síntesis Noticiosa</a></li>
+                    <li><a href="http://facturacion.grupoelcomercio.com/" target="_blank">Facturación</a></li>
+                    <li><a href="/puntos-servicio/">Puntos de Servicio</a></li>
+                </ul>
+            </div>
+            <div class="site-header__logo">
+                <a href="https://ec.mediatiquepress.com/">
+                    <img src="https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/images/logo-header_c92622dc.png" class="img-fluid" alt="Logo El Comercio">
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="site-menu">
+    <div class="container">
+        <div class="d-flex align-items-center">
+            <button class="site-menu__toggle d-md-none">
+                <label for="menu-mobile-toggle">
+                    <i class="fa fa-bars"></i>
+                </label>
+            </button>
+            <div class="site-menu__icons d-md-none ml-auto">
+                <a href="http://www.clubdesuscriptores.com.ec/" class="site-icon__club" target="_blank">CLUB</a>
+                <a href="https://pdf.elcomercio.com/"><i class="fa fa-lg fa-newspaper-o"></i></a>
+                <button class="btn btn-sm"><i class="fa fa-lg fa-share-alt"></i></button>
+                <div class="site-header__search">
+    <form method="get" action="https://ec.mediatiquepress.com/">
+        <input type="text" class="form-control form-control-sm" name="s" placeholder="Buscar" value="">
+    </form>
+    <button class="btn" type="button" data-action="show-search"><i class="fa fa-lg fa-search"></i></button>
+</div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+    <ul id="menu-menu-superior" class="site-menu__list bg-primary list-unstyled mb-0 d-none d-md-flex"><li><a href="https://ec.mediatiquepress.com/actualidad/">Actualidad</a></li>
+<li><a href="https://ec.mediatiquepress.com/tendencias/">Tendencias</a>
+<ul class="sub-menu">
+    <li><a href="https://goo.gl/VVHzRF">Educacción</a></li>
+</ul>
+</li>
+<li><a href="https://ec.mediatiquepress.com/deportes/">Deportes</a></li>
+<li><a href="https://ec.mediatiquepress.com/datos/">Data</a></li>
+<li><a href="https://ec.mediatiquepress.com/opinion/">Opinión</a>
+<ul class="sub-menu">
+    <li><a href="https://ec.mediatiquepress.com/categoria/opinion/editorial/">Editorial</a></li>
+    <li><a href="https://ec.mediatiquepress.com/categoria/opinion/caricaturas/">Caricaturas</a></li>
+    <li><a href="/tag/columnistas">Columnistas</a></li>
+    <li><a href="https://ec.mediatiquepress.com/categoria/cartas/">Cartas al director</a></li>
+</ul>
+</li>
+<li><a href="https://ec.mediatiquepress.com/multimedia/">Multimedia</a>
+<ul class="sub-menu">
+    <li><a href="https://ec.mediatiquepress.com/categoria/galerias/">Galerías</a></li>
+    <li><a href="https://ec.mediatiquepress.com/categoria/video/">Video</a></li>
+</ul>
+</li>
+<li><a href="https://ec.mediatiquepress.com/blogs/">Blogs</a></li>
+</ul>    </div>
+</div>
+
+<nav class="menu-mobile">
+    <input type="checkbox" id="menu-mobile-toggle">
+    <div class="menu-mobile__overlay">
+        <label for="menu-mobile-toggle"></label>
+    </div>
+    <div class="menu-mobile__content">
+        <button class="menu-mobile__toggle">
+            <label for="menu-mobile-toggle"><i class="fa fa-angle-double-left"></i></label>
+        </button>
+        <ul class="menu-mobile__list">
+            <li data-category="actualidad">
+                <a href="/actualidad"><span>Actualidad</span></a>
+            </li>
+            <li data-category="tendencias">
+                <a href="/tendencias"><span>Tendencias</span></a>
+                <ul class="menu-mobile__list">
+                    <li>
+                        <a href="https://goo.gl/VVHzRF" target="_blank">Educacción</a>
+                    </li>
+                </ul>
+            </li>
+            <li data-category="deportes">
+                <a href="/deportes"><span>Deportes</span></a></a>
+            </li>
+            <li data-category="datos">
+                <a href="/datos"><span>Data</span></a></a>
+            </li>
+            <li data-category="opinion">
+                <a href="/opinion"><span>Opinión</span></a>
+                <ul class="menu-mobile__list">
+                    <li>
+                        <a href="/opinion/editorial">Editorial</a>
+                    </li>
+                    <li>
+                        <a href="/opinion/caricaturas">Caricaturas</a>
+                    </li>
+                    <li>
+                        <a href="/columnistas">Columnistas</a>
+                    </li>
+                    <li>
+                        <a href="/cartas">Cartas al director</a>
+                    </li>
+                </ul>
+            </li>
+            <li data-category="multimedia">
+                <a href="/multimedia"><span>Multimedia</span></a></a>
+                <ul class="menu-mobile__list">
+                    <li>
+                        <a href="/video">Video</a>
+                    </li>
+                    <li>
+                        <a href="/galerias">Fotogalerias</a>
+                    </li>
+                    <li>
+                        <a href="/audios">Audio</a>
+                    </li>
+                </ul>
+            </li>
+            <li category="blogs">
+                <a href="/blogs"><span>Blogs</span></a>
+            </li>
+        </ul>
+        <ul class="menu-mobile__list">
+            <li data-category="productos">
+                <span>Productos</span>
+                <ul class="menu-mobile__list">
+                    <li>
+                        <a href="http://www.revistalideres.ec" target="_blank">Revista Líderes</a>
+                    </li>
+                    <li>
+                        <a href="http://www.revistafamilia.com.ec&quot;" target="_blank">Revista Familia</a>
+                    </li>
+                    <li>
+                        <a href="http://suplementos.elcomercio.com/" target="_blank">Suplementos</a>
+                    </li>
+                    <li>
+                        <a href="/afull">AFULL</a>
+                    </li>
+                    <li>
+                        <a href="/narices-frias">NARICES FRÍAS</a>
+                    </li>
+                    <li>
+                        <a href="/guaifai">GUAIFAI</a>
+                    </li>
+                    <li>
+                        <a href="/sabores">SABORES</a>
+                    </li>
+                </ul>
+            </li>
+            <li data-category="servicios">
+                <a href="http://www.elcomercio.com/pages/servicios.html"><span>Servicios</span></a>
+                <ul class="menu-mobile__list">
+                    <li>
+                        <a href="http://gec.ec/" target="_blank">Tarifario</a>
+                    </li>
+                    <li>
+                        <a href="http://www.elcomercio.com/pages/suscripcion.html">Suscripción</a>
+                    </li>
+                    <li>
+                        <a href="http://www.elcomercio.com/pages/rss.html">RSS</a>
+                    </li>
+                    <li>
+                        <a href="http://www.elcomercio.com/pages/aplicaciones-moviles.html">App móviles</a>
+                    </li>
+                    <li>
+                        <a href="http://www.elcomercio.com/ediciones-anteriores/">Ediciones Anteriores</a>
+                    </li>
+                    <li>
+                        <a href="http://www.elcomercio.com/pages/sintesis-noticiosa.html">Síntesis Noticiosa</a>
+                    </li>
+                    <li>
+                        <a href="http://facturacion.grupoelcomercio.com/" target="_blank">Facturación</a>
+                    </li>
+                    <li>
+                        <a href="https://www.elcomercio.com/pages/puntos-servicio.html">Puntos de Servicio</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+    <main class="site-main">
+<div class="container">
+    <div class="ec-banner ec-banner--marquee-1 text-center my-3 overflow-hidden" id="ec-banner-marquee-1" data-banner-pos="_marquee_ec"></div>
+    <div class="site-topics">
+    <span class="site-topics__heading">Temas a seguir</span>
+    <ul id="menu-temas-del-dia" class="site-topics__topics"><li><a href="/tag/coronavirus">Coronavirus</a></li>
+<li><a href="/tag/servicios-covid-19-quito">Servicios en pandemia</a></li>
+<li><a href="/tag/caso-sobornos">Caso Sobornos</a></li>
+<li><a href="/tag/metro-de-quito">Metro de Quito</a></li>
+<li><a href="/tag/fmi">FMI</a></li>
+<li><a href="/tag/venezuela">Crisis en Venezuela</a></li>
+<li><a href="/tag/violencia-de-genero">Violencia de género</a></li>
+</ul></div>
+        <div class="row">
+        <div class="col-md-8">
+            <div class="wp-block-section-1">
+                                    <div class="edit-section"> </div>
+                                    <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha ts-6 show-caption "
+            style=""
+            >
+            <div data-posts data-current-post-id="600004">
+                                    <article class="article-highlighted" data-layout="image-big" data-post-id="447706">
+        <div class="article-highlighted__media">
+                                </div>
+        <div class="article-highlighted__body">
+            <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/actualidad/demanda-reforma-ley-educacion-finanzas.html">Demanda o reforma, posibles salidas a Ley de Educación que incrementa el gasto público en USD 3 000 millones</a></h3>
+                        <p class="article-highlighted__description">La reforma a la Ley de Educación Intercultural se publicó ayer en el Registro Oficial, con lo cual empezaron a correr los plazos para pagar los beneficios establecidos para los maestros, pese a que no tienen financiamiento definido.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                
+
+
+<div class="wp-block-columns">
+<div class="wp-block-column">               <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-alignleft ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="600004">
+                                    <h2 class="article-section-title">
+                        <span>SOCIEDAD</span>
+                    </h2>
+                                    <article class="article-highlighted" data-layout="image-small" data-post-id="601196">
+        <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/uncategorized/nueva-jubilacion-especial-para-maestros-sin-estudio-actuarial.html">Nueva jubilación especial para maestros, sin estudio actuarial</a></h3>
+        <div class="article-highlighted__body">
+            
+            
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                </div>
+
+
+
+<div class="wp-block-column">               <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-alignleft ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="600004">
+                                    <h2 class="article-section-title">
+                        <span>SOCIEDAD</span>
+                    </h2>
+                                    <article class="article-highlighted" data-layout="image-small" data-post-id="601546">
+        <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/opinion/austeridad-protocolar-abelardo-pachano-columnista.html">Austeridad protocolar</a></h3>
+        <div class="article-highlighted__body">
+            
+            
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                </div>
+</div>
+                                            </div>
+        </div>
+                <div class="col-md-4">
+            <div class="ec-banner ec-banner--middel text-center overflow-hidden" id="ec-banner-middel" data-banner-pos="_middle_ec"></div>
+            <div class="widget-feed">
+    <header class="widget-feed__header">
+        <h3 class="widget-feed__title">
+                            <a href="/ultima-hora/">Última hora</a>
+                    </h3>
+
+    </header>
+    <section class="widget-feed__list">
+        <div class="widget-feed__list-item widget-feed__list-item--timing">
+    <a href="https://ec.mediatiquepress.com/opinion/austeridad-protocolar-abelardo-pachano-columnista.html" class="widget-feed__list-anchor">
+        <div class="widget-feed__list-leading">
+            <div class="widget-feed__list-time">17:27</div>
+        </div>
+        <div class="widget-feed__list-trailing">
+            <div class="widget-feed__list-content">Austeridad protocolar</div>
+        </div>
+    </a>
+</div>
+<div class="widget-feed__list-item widget-feed__list-item--timing">
+    <a href="https://ec.mediatiquepress.com/galerias/actualidad/la-ceniza-del-volcan-sangay-cayo-sobre-cantones-de-chimborazo-bolivar-guayas-y-los-rios.html" class="widget-feed__list-anchor">
+        <div class="widget-feed__list-leading">
+            <div class="widget-feed__list-time">16:19</div>
+        </div>
+        <div class="widget-feed__list-trailing">
+            <div class="widget-feed__list-content">La ceniza del volcán Sangay cayó sobre cantones de Chimborazo, Bolívar, Guayas y Los Ríos</div>
+        </div>
+    </a>
+</div>
+<div class="widget-feed__list-item widget-feed__list-item--timing">
+    <a href="https://ec.mediatiquepress.com/actualidad/protestas-chile-anuncio-retiro-pensiones.html" class="widget-feed__list-anchor">
+        <div class="widget-feed__list-leading">
+            <div class="widget-feed__list-time">09:14</div>
+        </div>
+        <div class="widget-feed__list-trailing">
+            <div class="widget-feed__list-content">Protestas en Chile tras anuncio del Gobierno de frenar el tercer retiro del fondo de</div>
+        </div>
+    </a>
+</div>
+<div class="widget-feed__list-item widget-feed__list-item--timing">
+    <a href="https://ec.mediatiquepress.com/actualidad/venezuela-ley-ciberespacio-redes-sociales.html" class="widget-feed__list-anchor">
+        <div class="widget-feed__list-leading">
+            <div class="widget-feed__list-time">09:03</div>
+        </div>
+        <div class="widget-feed__list-trailing">
+            <div class="widget-feed__list-content">Gobierno de Venezuela pretende aprobar la Ley del Ciberespacio; opositores temen que regule las redes sociales</div>
+        </div>
+    </a>
+</div>
+    </section>
+            <a href="/ultima-hora/" class="widget-feed__more">Ver más</a>
+    </div>
+        </div>
+                <div class="col-12">
+            <hr class="mb-0">
+        </div>
+    </div>
+    <div class="ec-banner ec-banner--marquee-2 text-center my-3 overflow-hidden" id="ec-banner-marquee-2" data-banner-pos="_marquee2_ec"></div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="wp-block-section-2">
+                                <div class="edit-section"> </div>
+                
+<div class="wp-block-columns">
+<div class="wp-block-column">               <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-aligntop ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="600017">
+                                    <article class="article-highlighted" data-layout="image-big" data-post-id="447577">
+        <div class="article-highlighted__media">
+                                        <a href="https://ec.mediatiquepress.com/actualidad/coe-nacional-descarta-confinamiento-ecuador.html" class="embed-responsive embed-responsive-16by9">
+                    <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/18/607cf1d45fc10.jpeg" class="embed-responsive-item" alt="El COE Nacional informó que se adoptarán medidas en el Ecuador para evitar la propagación del covid-19, pero descartó el confinamiento. Foto: Galo Paguay/ EL COMERCIO">
+                </a>
+                    </div>
+        <div class="article-highlighted__body">
+            <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/actualidad/coe-nacional-descarta-confinamiento-ecuador.html">COE Nacional no incluye confinamiento total en Ecuador, entre medidas que analiza por repunte de covid-19</a></h3>
+                        <p class="article-highlighted__description">A las 21:35 de este domingo 18 de abril del 2021, el Comité de Operaciones de Emergencia (COE) Nacional emitió un comunicado sobre las medidas estatales para frenar la propagación del contagio de covid-19 en Ecuador.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                
+
+                <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-aligntop ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="600017">
+                                    <article class="article-highlighted" data-layout="image-big" data-post-id="447569">
+        <div class="article-highlighted__media">
+                                        <a href="https://ec.mediatiquepress.com/actualidad/transportistas-interprovinciales-anuncian-paralizacion-servicio.html" class="embed-responsive embed-responsive-16by9">
+                    <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/18/607cdabe355a1.jpeg" class="embed-responsive-item" alt="La Federación de Transportistas de Pasajeros anunciaron la paralización del servicio de sus unidades para el lunes 19 de abril del 2021. Foto: Glenda Giacometti/ EL COMERCIO">
+                </a>
+                    </div>
+        <div class="article-highlighted__body">
+            <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/actualidad/transportistas-interprovinciales-anuncian-paralizacion-servicio.html">Transportistas interprovinciales anuncian paralización</a></h3>
+                        <p class="article-highlighted__description">La Federación Nacional de Cooperativas de Transporte Público de Pasajeros del Ecuador (Fenacotip) anunció una paralización para este lunes 19 de abril de 2021.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                
+
+
+<ul><li><a href="https://ec.mediatiquepress.com/uncategorized/transporte-urbano-funcionamiento-guayaquil-terminales.html" title="Transporte urbano no paralizará en Guayaquil; terminales habilitadas para buses interprovinciales que sí operen" data-type="post" data-id="447576">Transporte urbano no paralizará en Guayaquil; terminales habilitadas para buses interprovinciales que sí operen</a></li></ul>
+
+
+                <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-alignleft ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="600017">
+                                    <article class="article-highlighted" data-layout="image-small" data-post-id="447580">
+        <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/actualidad/preocupacion-pediatras-ninos-covid19-ecuador.html">Preocupación de pediatras por más casos de niños infectados con covid-19 en Ecuador</a></h3>
+        <div class="article-highlighted__body">
+            
+                        <div class="article-highlighted__media">
+                <a href="https://ec.mediatiquepress.com/actualidad/preocupacion-pediatras-ninos-covid19-ecuador.html" class="embed-responsive embed-responsive-16by9">
+                    <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/18/607d01f352c66.jpeg" class="embed-responsive-item" alt="Imagen referencial. Los padres de los niños con síntomas de covid-19 llevan a los menores a realizarse pruebas para confirmar el contagio del nuevo coronavirus. Foto: EFE">
+                </a>
+            </div>
+            
+                        <p class="article-highlighted__description">La cantidad de niños, niñas y adolescentes, con síntomas respiratorios relacionados con covid-19, ha aumentado en hospitales, como el Quito Sur, del Seguro Social. Allá se atienden prioritariamente a contagiados con el SARS-CoV-2.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                
+
+                <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-alignbehind ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="600017">
+                                    <article class="article-highlighted" data-layout="image-full" data-post-id="447594">
+        
+        
+        <div class="article-highlighted__body">
+            <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/video/comercio-explica-aumento-sueldo-profesores.html">EL COMERCIO te explica el aumento de sueldo a los profesores</a></h3>
+        </div>
+    </article>
+
+    
+                </div>
+            
+        </div>
+                
+
+            <div class="embed-responsive embed-responsive-16by9 position-relative">
+                <iframe src="https://ec.mediatiquepress.com/player-jwplatform/?mode=jwplatform&amp;id=Gp1vs0uB&amp;related=false">Video de prueba</iframe>
+            </div>
+            
+
+                <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha ts-4 "
+            style=""
+            >
+            <div data-posts data-current-post-id="600017">
+                                    <article class="article-highlighted" data-layout="image-big" data-post-id="447575">
+        <div class="article-highlighted__media">
+                                </div>
+        <div class="article-highlighted__body">
+            <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/actualidad/comision-economica-debate-ley-dolarizacion.html">Comisión Económica de la Asamblea aprobó informe para segundo debate del proyecto de ley de defensa de la dolarización</a></h3>
+                        <p class="article-highlighted__description">El informe para segundo debate del proyecto de ley para la defensa de la dolarización fue aprobado por la Comisión de Régimen Económico de la Asamblea Nacional la noche de este domingo 18 de abril de 2021.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                
+
+                <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-alignleft ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="600017">
+                                    <article class="article-highlighted" data-layout="image-small" data-post-id="447583">
+        <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/actualidad/soraya-herrera-fundacion-victima-hija.html">Soraya Herrera transformó el dolor de perder a su hija en fuerza</a></h3>
+        <div class="article-highlighted__body">
+            
+                        <div class="article-highlighted__media">
+                <a href="https://ec.mediatiquepress.com/actualidad/soraya-herrera-fundacion-victima-hija.html" class="embed-responsive embed-responsive-16by9">
+                    <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/18/607cfd9479880.jpeg" class="embed-responsive-item" alt="Soraya Herrera está delante de un collage de imágenes que forman el rostro de Nicole. Foto: Julio Estrella / EL COMERCIO">
+                </a>
+            </div>
+            
+                        <p class="article-highlighted__description">Soraya Herrera dirige el Centro de Apoyo a Víctimas de Accidentes de Tránsito que surgió para honrar la vida de su hija, Nicole Paredes.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                
+
+                <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-alignleft ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="600017">
+                                    <article class="article-highlighted" data-layout="image-small" data-post-id="447340">
+        <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/actualidad/ecuador-mortalidad-covid-pandemia-fallecidos.html">Ecuador: La mortalidad subió 24% en primer trimestre del 2021; ¿Qué ha pasado en 14 días de abril?</a></h3>
+        <div class="article-highlighted__body">
+            
+                        <div class="article-highlighted__media">
+                <a href="https://ec.mediatiquepress.com/actualidad/ecuador-mortalidad-covid-pandemia-fallecidos.html" class="embed-responsive embed-responsive-16by9">
+                    <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/16/6079e94daced7.jpeg" class="embed-responsive-item" alt="En estos 14 días de abril, en el país han muerto, un promedio diario, de 369 personas. Foto: Julio Estrella / EL COMERCIO">
+                </a>
+            </div>
+            
+                        <p class="article-highlighted__description">Las defunciones ocurridas en Ecuador por todas las causas, entre el 31 de diciembre del 2020 y el 31 de marzo del 2021, suman 36 251, un incremento del 24% con relación a los 29 318 fallecimientos, que se registraron en el período de diciembre del 2019 a marzo del 2020.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                
+
+
+<ul><li><a href="https://ec.mediatiquepress.com/actualidad/covid-pandemia-guayas-muertes-ecuador.html" title="Guayas registra las cifras de muertes más altas en los últimos 11 meses" data-type="post" data-id="447394">Guayas registra las cifras de muertes más altas en los últimos 11 meses</a></li></ul>
+
+
+                <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-aligntop ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="600017">
+                                    <article class="article-highlighted" data-layout="image-big" data-post-id="447581">
+        <div class="article-highlighted__media">
+                                        <a href="https://ec.mediatiquepress.com/actualidad/radios-online-barrios-quito-internet.html" class="embed-responsive embed-responsive-16by9">
+                    <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/18/607cfbbd6b544.jpeg" class="embed-responsive-item" alt="Mariela Altamirano (izq.), Óscar Pineda y Shirley Oscullo, tres de los integrantes de VerSur, en una transmisión. Foto: Vicente Costales / EL COMERCIO">
+                </a>
+                    </div>
+        <div class="article-highlighted__body">
+            <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/actualidad/radios-online-barrios-quito-internet.html">Las radios online toman vuelo en barrios quiteños</a></h3>
+                        <p class="article-highlighted__description">Silencio, voy a salir al aire. Silencio, por favor. Esa es la frase que Yolanda Doicela pronuncia cada vez que está frente al micrófono de un improvisado estudio de radio online.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                </div>
+
+
+
+<div class="wp-block-column">               <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-aligntop ts-4 is-3 is-landscape  has-text-color has-black-color"
+            style=""
+            >
+            <div data-posts data-current-post-id="600017">
+                                    <article class="article-highlighted" data-layout="image-big" data-post-id="447504">
+        <div class="article-highlighted__media">
+                                        <a href="https://ec.mediatiquepress.com/actualidad/lasso-oficialmente-presidente-electo-cne.html" class="embed-responsive embed-responsive-16by9">
+                    <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/18/607c4201c2afb.jpeg" class="embed-responsive-item" alt="Los cinco consejeros destacaron la labor de los integrantes de las Juntas Receptoras del Voto en medio de la emergencia sanitaria por el covid-19. Foto: Twitter @cnegobec">
+                </a>
+                    </div>
+        <div class="article-highlighted__body">
+            <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/actualidad/lasso-oficialmente-presidente-electo-cne.html">Guillermo Lasso es oficialmente el presidente electo del Ecuador tras la proclamación del CNE</a></h3>
+                        <p class="article-highlighted__description">Los resultados de la segunda vuelta electoral de binomio presidencial son oficiales. La mañana de hoy, domingo 18 de abril del 2021, el Pleno del Consejo Nacional Electoral (CNE) los proclamó.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                
+
+
+<ul><li><a href="https://www.elcomercio.com/actualidad/fases-transicion-lasso-moreno-carondelet.html" title=" Fases 2 y 3 de la transición de Gobierno arrancan el 19 de abril del 2021" data-type="URL" data-id="https://www.elcomercio.com/actualidad/fases-transicion-lasso-moreno-carondelet.html">Fases 2 y 3 de la transición de Gobierno arrancan el 19 de abril del 2021</a></li></ul>
+
+
+                <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-alignleft ts-4 is-2 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="600017">
+                                    <article class="article-highlighted" data-layout="image-small" data-post-id="447514">
+        <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/actualidad/pronunciamiento-facultad-coe-excepcion-presidente.html">Corte Constitucional dice que no restringe al Presidente el uso de sus facultades respecto a estado de excepción</a></h3>
+        <div class="article-highlighted__body">
+            
+                        <div class="article-highlighted__media">
+                <a href="https://ec.mediatiquepress.com/actualidad/pronunciamiento-facultad-coe-excepcion-presidente.html" class="embed-responsive embed-responsive-16by9">
+                    <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2020/12/22/5fe25009604cd.jpeg" class="embed-responsive-item" alt="La Corte Constitucional recibió el 22 de diciembre del 2020, la demanda de conflicto de competencias impulsada por el CNE. Foto: Archivo/ EL COMERCIO">
+                </a>
+            </div>
+            
+                        <p class="article-highlighted__description">La Corte Constitucional (CC) confirmó que sus autoridades y las del Comité de Operaciones de Emergencia (COE) nacional mantuvieron una reunión. En el encuentro se trató la situación actual del país en lo que tiene que ver con la emergencia sanitaria por el covid-19.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                
+
+
+<ul><li><a href="https://ec.mediatiquepress.com/actualidad/corte-constitucional-plazo-excepcion-ecuador.html" title="Corte Constitucional dispone que estado de excepción focalizado rija hasta la medianoche del 9 de abril" data-type="post" data-id="446339">Corte Constitucional dispone que estado de excepción focalizado rija hasta la medianoche del 9 de abril</a></li></ul>
+
+
+                <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-alignright ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="600017">
+                                    <article class="article-highlighted" data-layout="image-big" data-post-id="447507">
+        <div class="article-highlighted__media">
+                                        <a href="https://ec.mediatiquepress.com/actualidad/agencia-control-fiestas-clandestinas-quito.html" class="embed-responsive embed-responsive-16by9">
+                    <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/18/607c4ff0469b2.jpeg" class="embed-responsive-item" alt="Según el reporte del Ministerio de Salud Pública del sábado 17 Ecuador registra un total de 358 157 casos positivos de covid-19 confirmados con prueba PCR.  Foto: Twitter @agentesquito">
+                </a>
+                    </div>
+        <div class="article-highlighted__body">
+            <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/actualidad/agencia-control-fiestas-clandestinas-quito.html">Agencia de Control suspendió fiesta clandestina con 400 personas; agentes recibieron agresiones con piedras</a></h3>
+                        <p class="article-highlighted__description">La Agencia Metropolitana de Control (AMC) y la Intendencia de Policía de Pichincha realizaron operativos para controlar las aglomeraciones en Quito y en el valle De los Chillos durante la noche del sábado 17 y madrugada del domingo 18 de abril del 2021. El irrespeto al distanciamiento social y el consumo de bebidas alcohólicas fueron la tónica durante los operativos interinstitucionales.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                
+
+                <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-alignbehind ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="600017">
+                                    <article class="article-highlighted" data-layout="image-full" data-post-id="447529">
+        
+                <div class="article-highlighted__media">
+            <a href="https://ec.mediatiquepress.com/actualidad/servicio-agua-potable-parroquias-quito.html" class="embed-responsive embed-responsive-16by9">
+                <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2020/05/15/5ebe22dc8ebe5.jpeg" class="embed-responsive-item" alt="El servicio de agua potable se irá volverá a establecerá a lo largo de la mañana del viernes 15 de mayo del 2020, informó la Epmaps este 14 de mayo. Foto: Pixabay.">
+            </a>
+        </div>
+        
+        <div class="article-highlighted__body">
+            <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/actualidad/servicio-agua-potable-parroquias-quito.html">El servicio de agua potable se suspenderá en 9 parroquias rurales del Distrito Metropolitano de Quito</a></h3>
+        </div>
+    </article>
+
+    
+                </div>
+            
+        </div>
+                
+
+
+<h4>Hola</h4>
+
+
+
+<h4 class="home-heading home-heading--primary">Temas del Mundo</h4>
+
+
+<div class="wp-block-newspack-blocks-carousel" id="wp-block-newspack-carousel__1" ><div class="swiper-container"><div class="swiper-wrapper">
+            <article class="post-has-image swiper-slide">
+                <figure class="post-thumbnail">
+                    <a href="https://ec.mediatiquepress.com/actualidad/nuevo-horario-restriccion-quito-noche.html" rel="bookmark">
+                        <img width="612" height="340" src="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c.jpeg" class="attachment-large size-large wp-post-image" alt="" loading="lazy" object-fit="cover" layout="fill" srcset="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c.jpeg 612w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c-300x167.jpeg 300w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c-40x22.jpeg 40w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c-55x31.jpeg 55w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c-100x56.jpeg 100w" sizes="(max-width: 612px) 100vw, 612px" />                    </a>
+                </figure>
+                <div class="entry-wrapper">
+
+                
+                    <h3 class="entry-title"><a href="https://ec.mediatiquepress.com/actualidad/nuevo-horario-restriccion-quito-noche.html" rel="bookmark">Nuevo horario para restricción vehicular rige en Quito desde este 16 de abril del 2021; ¿cómo circular el fin de semana?</a></h3>
+                    <div class="entry-meta">
+                                            </div><!-- .entry-meta -->
+                </div><!-- .entry-wrapper -->
+            </article>
+            
+            <article class="post-has-image swiper-slide">
+                <figure class="post-thumbnail">
+                    <a href="https://ec.mediatiquepress.com/actualidad/circulacion-quito-resolucion-coe-pandemia.html" rel="bookmark">
+                        <img width="612" height="340" src="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/5f5d125f5c2f1.jpeg" class="attachment-large size-large wp-post-image" alt="" loading="lazy" object-fit="cover" layout="fill" srcset="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/5f5d125f5c2f1.jpeg 612w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/5f5d125f5c2f1-300x167.jpeg 300w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/5f5d125f5c2f1-40x22.jpeg 40w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/5f5d125f5c2f1-55x31.jpeg 55w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/5f5d125f5c2f1-100x56.jpeg 100w" sizes="(max-width: 612px) 100vw, 612px" />                    </a>
+                </figure>
+                <div class="entry-wrapper">
+
+                
+                    <h3 class="entry-title"><a href="https://ec.mediatiquepress.com/actualidad/circulacion-quito-resolucion-coe-pandemia.html" rel="bookmark">¿Cómo será la circulación en Quito el 15 de abril del 2021, tras la nueva resolución del COE Nacional?</a></h3>
+                    <div class="entry-meta">
+                                            </div><!-- .entry-meta -->
+                </div><!-- .entry-wrapper -->
+            </article>
+            </div><button class="swiper-button swiper-button-prev" aria-label="Previous Slide"></button><button class="swiper-button swiper-button-next" aria-label="Next Slide"></button></div><div class="swiper-pagination-bullets amp-pagination"><button option="0" class="swiper-pagination-bullet" aria-label="Go to slide 1" selected></button><button option="1" class="swiper-pagination-bullet" aria-label="Go to slide 2" ></button></div></div>
+
+                <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-aligntop ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="600017">
+                                    <article class="article-highlighted" data-layout="image-big" data-post-id="447489">
+        <div class="article-highlighted__media">
+                                        <a href="https://ec.mediatiquepress.com/actualidad/migracion-aeropuerto-cotopaxi-mexico-eeuu.html" class="embed-responsive embed-responsive-16by9">
+                    <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/17/607ba2b4e60c2.jpeg" class="embed-responsive-item" alt="El martes 13, un grupo de personas llegó a una elevación llamada Buenaventura, para despedir a sus familiares. Fotos: Glenda Giacometti / EL COMERCIO">
+                </a>
+                    </div>
+        <div class="article-highlighted__body">
+            <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/actualidad/migracion-aeropuerto-cotopaxi-mexico-eeuu.html">Migración por el aeropuerto de Cotopaxi se acelera</a></h3>
+                        <p class="article-highlighted__description">La mujer sacude una bufanda celeste. Alza las manos. Se desespera mientras el Boeing 737-500 se alista a despegar desde la pista del aeropuerto internacional de Cotopaxi. Van 120 pasajeros. El destino: México.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                
+
+
+<ul><li><a href="https://ec.mediatiquepress.com/actualidad/migrantes-nuevas-rutas-frontera-mexico.html" title="Migrantes buscan nuevas rutas para cruzar la frontera sur de México" data-type="post" data-id="445087">Migrantes buscan nuevas rutas para cruzar la frontera sur de México</a></li></ul>
+
+
+                <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-alignleft ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="600017">
+                                    <article class="article-highlighted" data-layout="image-small" data-post-id="447572">
+        <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/deportes/fifa-expresa-desaprobacion-liga-europea.html">La FIFA expresa su desaprobación a una &#8216;liga europea cerrada&#8217; creada por los clubes más importantes de Europa</a></h3>
+        <div class="article-highlighted__body">
+            
+                        <div class="article-highlighted__media">
+                <a href="https://ec.mediatiquepress.com/deportes/fifa-expresa-desaprobacion-liga-europea.html" class="embed-responsive embed-responsive-16by9">
+                    <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/18/607ce0785ccc5.jpeg" class="embed-responsive-item" alt="La UEFA emitió un comunicado el 18 de abril de 2021 condenando una propuesta para formar una superliga europea separatista después de enterarse de que algunos clubes ingleses, españoles e italianos planean anunciar la creación de dicha liga. (Suiza). Foto">
+                </a>
+            </div>
+            
+                        <p class="article-highlighted__description">La FIFA ha expresado, a través de un comunicado, su &#8220;desaprobación a una liga europea cerrada y escindida&#8221;. El máximo organismo futbolístico mundial sale así al paso del anuncio hecho también esta noche por parte de doce de los principales clubes europeos de crear una nueva competición, la Superliga.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                
+
+                <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-alignbehind ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="600017">
+                                    <article class="article-highlighted" data-layout="image-full" data-post-id="447456">
+        
+                <div class="article-highlighted__media">
+            <a href="https://ec.mediatiquepress.com/actualidad/moreno-reunion-lasso-transicion-gobierno.html" class="embed-responsive embed-responsive-16by9">
+                <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/17/607b4a0e4e3d8.png" class="embed-responsive-item" alt="Tras las citas de alto nivel, los portavoces de las administraciones saliente y entrante brindarán declaraciones a los medios de comunicación para informar sobre el avance del proceso de transición. Foto: Flickr / EFE">
+            </a>
+        </div>
+        
+        <div class="article-highlighted__body">
+            <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/actualidad/moreno-reunion-lasso-transicion-gobierno.html">Lenín Moreno se reunirá el lunes 19 de abril del 2021 con Guillermo Lasso</a></h3>
+        </div>
+    </article>
+
+    
+                </div>
+            
+        </div>
+                
+
+
+<h4 class="home-heading home-heading--primary">Quito en la pandemia</h4>
+
+
+<div class="wp-block-newspack-blocks-carousel" id="wp-block-newspack-carousel__2" ><div class="swiper-container"><div class="swiper-wrapper">
+            <article class="post-has-image swiper-slide">
+                <figure class="post-thumbnail">
+                    <a href="https://ec.mediatiquepress.com/actualidad/nuevo-horario-restriccion-quito-noche.html" rel="bookmark">
+                        <img width="612" height="340" src="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c.jpeg" class="attachment-large size-large wp-post-image" alt="" loading="lazy" object-fit="cover" layout="fill" srcset="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c.jpeg 612w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c-300x167.jpeg 300w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c-40x22.jpeg 40w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c-55x31.jpeg 55w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c-100x56.jpeg 100w" sizes="(max-width: 612px) 100vw, 612px" />                    </a>
+                </figure>
+                <div class="entry-wrapper">
+
+                
+                    <h3 class="entry-title"><a href="https://ec.mediatiquepress.com/actualidad/nuevo-horario-restriccion-quito-noche.html" rel="bookmark">Nuevo horario para restricción vehicular rige en Quito desde este 16 de abril del 2021; ¿cómo circular el fin de semana?</a></h3>
+                    <div class="entry-meta">
+                                            </div><!-- .entry-meta -->
+                </div><!-- .entry-wrapper -->
+            </article>
+            
+            <article class="post-has-image swiper-slide">
+                <figure class="post-thumbnail">
+                    <a href="https://ec.mediatiquepress.com/actualidad/circulacion-quito-resolucion-coe-pandemia.html" rel="bookmark">
+                        <img width="612" height="340" src="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/5f5d125f5c2f1.jpeg" class="attachment-large size-large wp-post-image" alt="" loading="lazy" object-fit="cover" layout="fill" srcset="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/5f5d125f5c2f1.jpeg 612w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/5f5d125f5c2f1-300x167.jpeg 300w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/5f5d125f5c2f1-40x22.jpeg 40w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/5f5d125f5c2f1-55x31.jpeg 55w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/5f5d125f5c2f1-100x56.jpeg 100w" sizes="(max-width: 612px) 100vw, 612px" />                    </a>
+                </figure>
+                <div class="entry-wrapper">
+
+                
+                    <h3 class="entry-title"><a href="https://ec.mediatiquepress.com/actualidad/circulacion-quito-resolucion-coe-pandemia.html" rel="bookmark">¿Cómo será la circulación en Quito el 15 de abril del 2021, tras la nueva resolución del COE Nacional?</a></h3>
+                    <div class="entry-meta">
+                                            </div><!-- .entry-meta -->
+                </div><!-- .entry-wrapper -->
+            </article>
+            </div><button class="swiper-button swiper-button-prev" aria-label="Previous Slide"></button><button class="swiper-button swiper-button-next" aria-label="Next Slide"></button></div><div class="swiper-pagination-bullets amp-pagination"><button option="0" class="swiper-pagination-bullet" aria-label="Go to slide 1" selected></button><button option="1" class="swiper-pagination-bullet" aria-label="Go to slide 2" ></button></div></div></div>
+</div>
+
+
+
+<div class="wp-block-columns">
+<div class="wp-block-column">
+<h4 class="home-heading home-heading--primary">Especial</h4>
+
+
+            <div class="embed-responsive embed-responsive-16by9 position-relative">
+                <iframe src="https://ec.mediatiquepress.com/player-jwplatform/?mode=jwplatform&amp;id=VUYOtf5E&amp;related=false">Video de prueba</iframe>
+            </div>
+            
+
+
+<h4><a href="/especial-1-de-enero-retos-del-2021/">Especial: Los retos del 2021</a> </h4>
+
+
+
+<p>La economía debilitada y la llegada del covid-19 configuraron en el 2020 un panorama de bordes casi irreales. EL COMERCIO dedica esta edición a encarar los retos del 2021 en ámbitos cruciales como la economía, producción, salud, educación, familia</p>
+</div>
+
+
+
+<div class="wp-block-column">
+<h4 class="home-heading home-heading--primary">Especial</h4>
+
+
+
+<figure class="wp-block-image size-large"><a href="https://especiales.elcomercio.com/2020/12/suenos-sin-fronteras/"><img src="https://www.elcomercio.com/files/article_default/uploads/2020/12/18/5fdd6721eddd6.jpeg" alt=""/></a></figure>
+
+
+
+<h4><a href="https://especiales.elcomercio.com/2020/12/suenos-sin-fronteras/" target="_blank" rel="noreferrer noopener">Derecho a identidad, a educación, a salud… Niños venezolanos en Quito </a></h4>
+
+
+
+<p>Deyna quiere ser policía en Ecuador; Mara, doctora. Josef será futbolista; Neily, veterinaria; Mayely, pintora… Son niños, hijos de migrantes que se encuentran indocumentados en Quito. Desde agosto del 2019, Ecuador exige visa a los venezolanos que persiguen sueños sin fronteras.</p>
+</div>
+</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+                        <div class="widget__feed mb-3">
+    <div class="widget-feed__header widget-feed__header--ecuador-radio">
+        <h3 class="widget-feed__title widget-feed__title--ecuador-radio">EcuadorRadio en vivo</h3>
+    </div>
+    <div class="widget-feed_content">
+        <img src="https://www.gecpublicidad.com/publicidades/ESPECIALES/assets/banner_ecuadoradio.jpg" class="w-100" alt="">
+    </div>
+</div>
+            <div class="widget-feed">
+    <header class="widget-feed__header">
+        <h3 class="widget-feed__title">
+            <a href="/blogs">Blogs en El Comercio</a>
+        </h3>
+    </header>
+    <section class="widget-feed__list">
+        <div class="widget-feed__list-item widget-feed__list-item--blog">
+    <div class="widget-feed__list-leading">
+        <a href="https://ec.mediatiquepress.com/blogs/texto-y-contexto-critico/" class="widget-feed__list-thumb">
+                        <img src="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/contexto-40x40.jpeg" alt="Texto y contexto crítico" />
+        </a>
+    </div>
+    <div class="widget-feed__list-trailing">
+        <a href="https://ec.mediatiquepress.com/blogs/texto-y-contexto-critico/" class="widget-feed__list-category">Texto y contexto crítico</a>
+        <a href="https://ec.mediatiquepress.com/blogs/texto-y-contexto-critico/transicion-apenas-empezado-ecuador-gobierno.html" class="widget-feed__list-title">La transición apenas ha empezado en Ecuador</a>
+                    <a href="https://ec.mediatiquepress.com/blogs/texto-y-contexto-critico/" class="widget-feed__list-author">Jorge R. Imbaquingo</a>
+            </div>
+</div>
+<div class="widget-feed__list-item widget-feed__list-item--blog">
+    <div class="widget-feed__list-leading">
+        <a href="https://ec.mediatiquepress.com/blogs/historias-sin-fronteras/" class="widget-feed__list-thumb">
+                        <img src="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/msf-40x40.jpeg" alt="Historias sin fronteras" />
+        </a>
+    </div>
+    <div class="widget-feed__list-trailing">
+        <a href="https://ec.mediatiquepress.com/blogs/historias-sin-fronteras/" class="widget-feed__list-category">Historias sin fronteras</a>
+        <a href="https://ec.mediatiquepress.com/blogs/historias-sin-fronteras/altas-tasas-mortalidad-hospitales-limite.html" class="widget-feed__list-title">Con altas tasas de mortalidad y hospitales al límite del colapso, Perú enfrenta una brutal nueva ola de covid-19</a>
+            </div>
+</div>
+    </section>
+</div>
+            <div class="widget-feed">
+    <header class="widget-feed__header">
+        <h3 class="widget-feed__title">Mapa del estado de vías</h3>
+    </header>
+    <div class="widget-feed_content d-flex border align-items-center">
+        <div class="p-2 w-50">
+            <div class="widget-feed__list-category text-primary">Ecuador</div>
+            <a href="/pages/reporte-vias-cerradas-habilitadas-ecuador.html" class="text-dark font-weight-bold">Ingrese a un mapa de las vías</a>
+        </div>
+        <div class="w-50">
+            <img src="https://www.gecpublicidad.com/publicidades/ESPECIALES/assets/banner_ecuadoradio.jpg" class="w-100" alt="">
+        </div>
+    </div>
+</div>
+            <div class="widget-feed widget-feed--videos">
+    <header class="widget-feed__header">
+        <h3 class="widget-feed__title">Videos destacados</h3>
+    </header>
+    <section class="widget-feed__list">
+    <div class="widget-feed__list-item widget-feed__list-item--featured widget-feed__list-item--video">
+    <a href="https://ec.mediatiquepress.com/video/ecu911-detecta-maniobras-robos-ecuador.html" class="widget-feed__list-anchor">
+        <div class="widget-feed__list-leading">
+            <div class="widget-feed__list-thumb">
+                                <img src="https://www.elcomercio.com/files/listing_default/uploads/2021/04/20/607f4a5d2941f.jpeg" alt="">
+                            </div>
+        </div>
+        <div class="widget-feed__list-trailing">
+            <div class="widget-feed__list-content">
+                <div>
+                                                <span class="widget-feed__list-counter">1</span>
+                                            Videos del ECU 911 detectan maniobras de sospechosos en robo a carro, local y casa                </div>
+                            </div>
+        </div>
+    </a>
+</div>
+<div class="widget-feed__list-item widget-feed__list-item--featured widget-feed__list-item--video">
+    <a href="https://ec.mediatiquepress.com/video/fuerte-lluvia-acumulacion-ilalo-valle.html" class="widget-feed__list-anchor">
+        <div class="widget-feed__list-leading">
+            <div class="widget-feed__list-thumb">
+                                <img src="https://www.elcomercio.com/files/listing_default/uploads/2021/04/20/607f3f28e693b.jpeg" alt="">
+                            </div>
+        </div>
+        <div class="widget-feed__list-trailing">
+            <div class="widget-feed__list-content">
+                <div>
+                                        Fuerte lluvia dificulta el paso de vehículos en la avenida Ilaló, en valle de Los Chillos                </div>
+                            </div>
+        </div>
+    </a>
+</div>
+<div class="widget-feed__list-item widget-feed__list-item--featured widget-feed__list-item--video">
+    <a href="https://ec.mediatiquepress.com/video/imagenes-sobrevivientes-fuertes-accidentes-ecuador.html" class="widget-feed__list-anchor">
+        <div class="widget-feed__list-leading">
+            <div class="widget-feed__list-thumb">
+                                <img src="https://www.elcomercio.com/files/listing_default/uploads/2021/04/20/607f31ab2ba6e.jpeg" alt="">
+                            </div>
+        </div>
+        <div class="widget-feed__list-trailing">
+            <div class="widget-feed__list-content">
+                <div>
+                                        Imágenes de personas que sobreviven a fuertes accidentes de tránsito en Ecuador                </div>
+                            </div>
+        </div>
+    </a>
+</div>
+<div class="widget-feed__list-item widget-feed__list-item--featured widget-feed__list-item--video">
+    <a href="https://ec.mediatiquepress.com/video/diferencia-pasaje-bus-quito-tarifa.html" class="widget-feed__list-anchor">
+        <div class="widget-feed__list-leading">
+            <div class="widget-feed__list-thumb">
+                                <img src="https://www.elcomercio.com/files/listing_default/uploads/2021/04/19/607e502b8c70f.jpeg" alt="">
+                            </div>
+        </div>
+        <div class="widget-feed__list-trailing">
+            <div class="widget-feed__list-content">
+                <div>
+                                        ¿Cuál es la diferencia de pagar 35 centavos en un bus urbano en Quito?                </div>
+                            </div>
+        </div>
+    </a>
+</div>
+    </section>
+</div>
+            <div class="widget-feed">
+    <iframe src="https://www.gecpublicidad.com/publicidades/ESPECIALES/assets//btn-BF/" width="100%" height="74px" marginwidth="0px" marginheight="0px" frameborder="0px" scrolling="no" style="display: block;"></iframe>
+</div>
+            <div class="widget-feed">
+<iframe scrolling="no" src="https://www.laprensa.ec" width="100%" style="border: 1px solid #ccc; height: 120px;"></iframe>
+</div>
+            <div class="ec-banner ec-banner--catalogos text-center my-3 overflow-hidden" id="ec-banner-catalogos" data-banner-pos="_catalogos_ec"></div>
+                    </div>
+    </div>
+    <div class="ec-banner ec-banner--leaderboard text-center my-3 overflow-hidden" id="ec-banner-leaderboard" data-banner-pos="_leaderboard_ec"></div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="wp-block-section-3 row">
+                                    <div class="edit-section"> </div>
+                
+<div class="wp-block-columns">
+<div class="wp-block-column">               <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-aligntop ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="601354">
+                                    <article class="article-highlighted" data-layout="image-big" data-post-id="447574">
+        <div class="article-highlighted__media">
+                                        <a href="https://ec.mediatiquepress.com/tendencias/brotes-coronavirus-poblacion-mascarilla-distanciamiento.html" class="embed-responsive embed-responsive-16by9">
+                    <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/18/607ce407a88ab.jpeg" class="embed-responsive-item" alt="Un estudio analizó los efectos del uso de la mascarilla y el distanciamiento social para prevenir los brotes del coronavirus. Foto: Reuters">
+                </a>
+                    </div>
+        <div class="article-highlighted__body">
+            <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/tendencias/brotes-coronavirus-poblacion-mascarilla-distanciamiento.html">Los brotes pueden evitarse si el 60% de la población cumplen con el uso de mascarillas y distanciamiento social</a></h3>
+                        <p class="article-highlighted__description">Los estudios demuestran que el uso de mascarillas y el distanciamiento social pueden contener la propagación del covid-19, pero no se conoce con exactitud su eficacia combinada.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                
+
+                <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-alignleft ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="601354">
+                                    <article class="article-highlighted" data-layout="image-small" data-post-id="447325">
+        <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/tendencias/actriz-cine-adultos-lana-rhoades.html">De querer ser actriz en cine para adultos a pasarla mal: la historia de Lana Rhoades</a></h3>
+        <div class="article-highlighted__body">
+            
+                        <div class="article-highlighted__media">
+                <a href="https://ec.mediatiquepress.com/tendencias/actriz-cine-adultos-lana-rhoades.html" class="embed-responsive embed-responsive-16by9">
+                    <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/16/6079c42e03cec.jpeg" class="embed-responsive-item" alt="Según el medio inglés Daily Star, Rhoades trabajó como stripper y camarera antes de recibir una propuesta para iniciar una carrera en la industria para adultos en Los Ángeles, Estados Unidos. Foto: Diario El Tiempo de Colombia">
+                </a>
+            </div>
+            
+                        <p class="article-highlighted__description">Lana Rhoades, de 24 años, que ahora trabaja como modelo, influencer, vlogger y podcaster, contó que vivió experiencias traumáticas dentro del mundo del cine para adultos, por lo que decidió dejar su carrera a un lado, a pesar de que su sueño siempre fue pertenecer a esta industria.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                
+
+                <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-alignbehind ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="601354">
+                                    <article class="article-highlighted" data-layout="image-full" data-post-id="447323">
+        
+                <div class="article-highlighted__media">
+            <a href="https://ec.mediatiquepress.com/tendencias/goku-vive-manabi-ecuador-futbolista.html" class="embed-responsive embed-responsive-16by9">
+                <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/16/6079c33014c4e.jpeg" class="embed-responsive-item" alt="El nombre del joven Gokú Molina fue tendencia en redes sociales de Ecuador, después de que se difundiera que un elector de los comicios presidenciales llevaba el nombre del famoso personaje animado. Foto: El Diario (Manabí)">
+            </a>
+        </div>
+        
+        <div class="article-highlighted__body">
+            <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/tendencias/goku-vive-manabi-ecuador-futbolista.html">Goku vive en Manabí, Ecuador, y quiere ser futbolista</a></h3>
+        </div>
+    </article>
+
+    
+                </div>
+            
+        </div>
+                </div>
+
+
+
+<div class="wp-block-column">               <div
+            class="wp-block-newspack-blocks-homepage-articles  wpnbha show-image image-alignleft ts-4 is-3 is-landscape "
+            style=""
+            >
+            <div data-posts data-current-post-id="601354">
+                                    <article class="article-highlighted" data-layout="image-small" data-post-id="447348">
+        <h3 class="article-highlighted__title"><a href="https://ec.mediatiquepress.com/actualidad/ant-inicio-proceso-chatarrizacion-vehiculos.html">La ANT inició el proceso de chatarrización de los vehículos que están en los patios de retención</a></h3>
+        <div class="article-highlighted__body">
+            
+                        <div class="article-highlighted__media">
+                <a href="https://ec.mediatiquepress.com/actualidad/ant-inicio-proceso-chatarrizacion-vehiculos.html" class="embed-responsive embed-responsive-16by9">
+                    <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/16/6079f758ca802.jpeg" class="embed-responsive-item" alt="El proceso inició el jueves 15 de abril del 2021. Foto: Archivo / EL COMERCIO">
+                </a>
+            </div>
+            
+                        <p class="article-highlighted__description">La Agencia Nacional de Tránsito (ANT) informó que se iniciará el proceso de chatarrización de los vehículos que se encuentran en los patios de retención. Los dueños de los automotores tendrán diez días para retirarlos.</p>
+                    </div>
+    </article>
+    
+                </div>
+            
+        </div>
+                
+
+
+<h4 class="home-heading home-heading--primary">Temas del Mundo</h4>
+
+
+<div class="wp-block-newspack-blocks-carousel" id="wp-block-newspack-carousel__3" ><div class="swiper-container"><div class="swiper-wrapper">
+            <article class="post-has-image swiper-slide">
+                <figure class="post-thumbnail">
+                    <a href="https://ec.mediatiquepress.com/actualidad/protestas-chile-anuncio-retiro-pensiones.html" rel="bookmark">
+                        <img width="256" height="167" src="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/au2-e1619038925270.jpg" class="attachment-large size-large wp-post-image" alt="Algunas personas se reencontraron con sus seres queridos después de un año, luego de que el gobierno cerrara las fronteras para contener el covid-19. Foto: EFE" loading="lazy" object-fit="cover" layout="fill" srcset="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/au2-e1619038925270.jpg 256w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/au2-e1619038925270-40x26.jpg 40w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/au2-e1619038925270-55x36.jpg 55w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/au2-e1619038925270-100x65.jpg 100w" sizes="(max-width: 256px) 100vw, 256px" />                    </a>
+                </figure>
+                <div class="entry-wrapper">
+
+                
+                    <h3 class="entry-title"><a href="https://ec.mediatiquepress.com/actualidad/protestas-chile-anuncio-retiro-pensiones.html" rel="bookmark">Protestas en Chile tras anuncio del Gobierno de frenar el tercer retiro del fondo de</a></h3>
+                    <div class="entry-meta">
+                                            </div><!-- .entry-meta -->
+                </div><!-- .entry-wrapper -->
+            </article>
+            
+            <article class="post-has-image swiper-slide">
+                <figure class="post-thumbnail">
+                    <a href="https://ec.mediatiquepress.com/opinion/caricaturas/agotados-medicos-pandemia-covid-enfermeras.html" rel="bookmark">
+                        <img width="838" height="485" src="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/lujan.jpg" class="attachment-large size-large wp-post-image" alt="Agotados, caricatura de Luján de este 20 de abril del 2021." loading="lazy" object-fit="cover" layout="fill" srcset="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/lujan.jpg 838w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/lujan-300x174.jpg 300w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/lujan-40x23.jpg 40w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/lujan-55x32.jpg 55w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/lujan-100x58.jpg 100w" sizes="(max-width: 838px) 100vw, 838px" />                   </a>
+                </figure>
+                <div class="entry-wrapper">
+
+                
+                    <h3 class="entry-title"><a href="https://ec.mediatiquepress.com/opinion/caricaturas/agotados-medicos-pandemia-covid-enfermeras.html" rel="bookmark">Agotados</a></h3>
+                    <div class="entry-meta">
+                                            </div><!-- .entry-meta -->
+                </div><!-- .entry-wrapper -->
+            </article>
+            
+            <article class="post-has-image swiper-slide">
+                <figure class="post-thumbnail">
+                    <a href="https://ec.mediatiquepress.com/actualidad/australia-nueva-zelanda-imagenes-familias-reencuentro-burbuja-coronavirus.html" rel="bookmark">
+                        <img width="358" height="212" src="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/au1-e1618960021901.jpg" class="attachment-large size-large wp-post-image" alt="Las personas se reencontraron con sus seres queridos el 19 de abril del 2021, después de que Australia saliera de su burbuja aérea para prevenir contagios de covid-19. Foto: EFE" loading="lazy" object-fit="cover" layout="fill" srcset="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/au1-e1618960021901.jpg 358w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/au1-e1618960021901-300x178.jpg 300w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/au1-e1618960021901-40x24.jpg 40w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/au1-e1618960021901-55x33.jpg 55w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/au1-e1618960021901-100x59.jpg 100w" sizes="(max-width: 358px) 100vw, 358px" />                   </a>
+                </figure>
+                <div class="entry-wrapper">
+
+                
+                    <h3 class="entry-title"><a href="https://ec.mediatiquepress.com/actualidad/australia-nueva-zelanda-imagenes-familias-reencuentro-burbuja-coronavirus.html" rel="bookmark">Emotivas imágenes por reencuentro de familias, tras eliminar burbuja aérea en Australia y Nueva Zelanda por covid-19</a></h3>
+                    <div class="entry-meta">
+                                            </div><!-- .entry-meta -->
+                </div><!-- .entry-wrapper -->
+            </article>
+            
+            <article class="post-has-image swiper-slide">
+                <figure class="post-thumbnail">
+                    <a href="https://ec.mediatiquepress.com/uncategorized/paro-de-transporte-publico-de-pasajeros-afecta-la-movilidad-en-varias-localidades-de-ecuador.html" rel="bookmark">
+                        <img width="1024" height="460" src="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/35XI7S5QVBABFHCL6FDI6SKJDU-1024x460.jpeg" class="attachment-large size-large wp-post-image" alt="En Guayaquil se mantienen las operaciones con normalidad." loading="lazy" object-fit="cover" layout="fill" srcset="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/35XI7S5QVBABFHCL6FDI6SKJDU-1024x460.jpeg 1024w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/35XI7S5QVBABFHCL6FDI6SKJDU-300x135.jpeg 300w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/35XI7S5QVBABFHCL6FDI6SKJDU-1200x539.jpeg 1200w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/35XI7S5QVBABFHCL6FDI6SKJDU-40x18.jpeg 40w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/35XI7S5QVBABFHCL6FDI6SKJDU-55x25.jpeg 55w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/35XI7S5QVBABFHCL6FDI6SKJDU-100x45.jpeg 100w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/35XI7S5QVBABFHCL6FDI6SKJDU.jpeg 1280w" sizes="(max-width: 1024px) 100vw, 1024px" />                    </a>
+                </figure>
+                <div class="entry-wrapper">
+
+                
+                    <h3 class="entry-title"><a href="https://ec.mediatiquepress.com/uncategorized/paro-de-transporte-publico-de-pasajeros-afecta-la-movilidad-en-varias-localidades-de-ecuador.html" rel="bookmark">Paro de transporte público de pasajeros afecta la movilidad en varias localidades de Ecuador</a></h3>
+                    <div class="entry-meta">
+                                            </div><!-- .entry-meta -->
+                </div><!-- .entry-wrapper -->
+            </article>
+            
+            <article class="post-has-image swiper-slide">
+                <figure class="post-thumbnail">
+                    <a href="https://ec.mediatiquepress.com/actualidad/nuevo-horario-restriccion-quito-noche.html" rel="bookmark">
+                        <img width="612" height="340" src="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c.jpeg" class="attachment-large size-large wp-post-image" alt="" loading="lazy" object-fit="cover" layout="fill" srcset="https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c.jpeg 612w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c-300x167.jpeg 300w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c-40x22.jpeg 40w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c-55x31.jpeg 55w, https://ec.mediatiquepress.com/wp-content/uploads/2021/04/60799f8ba463c-100x56.jpeg 100w" sizes="(max-width: 612px) 100vw, 612px" />                    </a>
+                </figure>
+                <div class="entry-wrapper">
+
+                
+                    <h3 class="entry-title"><a href="https://ec.mediatiquepress.com/actualidad/nuevo-horario-restriccion-quito-noche.html" rel="bookmark">Nuevo horario para restricción vehicular rige en Quito desde este 16 de abril del 2021; ¿cómo circular el fin de semana?</a></h3>
+                    <div class="entry-meta">
+                                            </div><!-- .entry-meta -->
+                </div><!-- .entry-wrapper -->
+            </article>
+            </div><button class="swiper-button swiper-button-prev" aria-label="Previous Slide"></button><button class="swiper-button swiper-button-next" aria-label="Next Slide"></button></div><div class="swiper-pagination-bullets amp-pagination"><button option="0" class="swiper-pagination-bullet" aria-label="Go to slide 1" selected></button><button option="1" class="swiper-pagination-bullet" aria-label="Go to slide 2" ></button><button option="2" class="swiper-pagination-bullet" aria-label="Go to slide 3" ></button><button option="3" class="swiper-pagination-bullet" aria-label="Go to slide 4" ></button><button option="4" class="swiper-pagination-bullet" aria-label="Go to slide 5" ></button></div></div></div>
+</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="widget-feed">
+    <header class="widget-feed__header">
+        <h3 class="widget-feed__title">Lo Último en Fotogalerías</h3>
+    </header>
+    <section class="widget-feed__list">
+        <div class="widget-feed__list-item widget-feed__list-item--featured widget-feed__list-item--fotogaleria">
+    <a href="https://ec.mediatiquepress.com/galerias/actualidad/la-ceniza-del-volcan-sangay-cayo-sobre-cantones-de-chimborazo-bolivar-guayas-y-los-rios.html" class="widget-feed__list-anchor">
+        <div class="widget-feed__list-leading">
+            <div class="widget-feed__list-thumb">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJAQMAAAAB5D5xAAAAA1BMVEXr6+uInxNMAAAACklEQVQI12PADQAAGwABCuPkfAAAAABJRU5ErkJggg==" alt="">
+                            </div>
+        </div>
+        <div class="widget-feed__list-trailing">
+            <div class="widget-feed__list-content">
+                <div>
+                                        La ceniza del volcán Sangay cayó sobre cantones de Chimborazo, Bolívar, Guayas y Los Ríos                </div>
+                            </div>
+        </div>
+    </a>
+</div>
+<div class="widget-feed__list-item widget-feed__list-item--featured widget-feed__list-item--fotogaleria">
+    <a href="https://ec.mediatiquepress.com/galerias/ceniza-volcan-sangay-cantones-cultivos.html" class="widget-feed__list-anchor">
+        <div class="widget-feed__list-leading">
+            <div class="widget-feed__list-thumb">
+                                <img src="https://www.elcomercio.com/files/image_gallery/uploads/2021/04/13/6075e8e348d01.jpeg" alt="">
+                            </div>
+        </div>
+        <div class="widget-feed__list-trailing">
+            <div class="widget-feed__list-content">
+                <div>
+                                        La ceniza del volcán Sangay cayó sobre cantones de Chimborazo, Bolívar, Guayas y Los Ríos                </div>
+                            </div>
+        </div>
+    </a>
+</div>
+<div class="widget-feed__list-item widget-feed__list-item--featured widget-feed__list-item--fotogaleria">
+    <a href="https://ec.mediatiquepress.com/galerias/guillermo-lasso-presidente-festejos-quito.html" class="widget-feed__list-anchor">
+        <div class="widget-feed__list-leading">
+            <div class="widget-feed__list-thumb">
+                                <img src="https://www.elcomercio.com/files/image_gallery/uploads/2021/04/11/6073bcc43b55a.jpeg" alt="">
+                            </div>
+        </div>
+        <div class="widget-feed__list-trailing">
+            <div class="widget-feed__list-content">
+                <div>
+                                        Guillermo Lasso el presidente electo de Ecuador; festejos en Quito y Guayaquil                </div>
+                            </div>
+        </div>
+    </a>
+</div>
+<div class="widget-feed__list-item widget-feed__list-item--featured widget-feed__list-item--fotogaleria">
+    <a href="https://ec.mediatiquepress.com/galerias/quito-ciudadania-balotaje-derecho-sufragio.html" class="widget-feed__list-anchor">
+        <div class="widget-feed__list-leading">
+            <div class="widget-feed__list-thumb">
+                                <img src="https://www.elcomercio.com/files/image_gallery/uploads/2021/04/11/60731a577ebd7.jpeg" alt="">
+                            </div>
+        </div>
+        <div class="widget-feed__list-trailing">
+            <div class="widget-feed__list-content">
+                <div>
+                                        En Quito, la ciudadanía acudió a ejercer su derecho al voto                </div>
+                            </div>
+        </div>
+    </a>
+</div>
+    </section>
+</div>
+            <div class="ec-banner ec-banner--catalogos text-center my-3 overflow-hidden" id="ec-banner-catalogos" data-banner-pos="_catalogos_ec"></div>
+            <div class="border">
+    <a href="https://www.elcomercio.com/actualidad/tabla-pensiones-padres-pandemia-covid.html" class="float-left mr-2"><img src="https://www.elcomercio.com/files/sidebar_higlight_article/uploads/2021/02/01/601888a900869.png" alt=""></a>
+    <div class="">
+        <h5 class="text-primary font-title mb-0 mt-1">Calculadora</h5>
+        <a href="https://www.elcomercio.com/actualidad/tabla-pensiones-padres-pandemia-covid.html" class="text-primary h5 font-title font-weight-light">Calcule la pensión alimenticia en Ecuador</a>
+        <p class="font-georgia font-size-sm" style="line-height: 1.3;">La tabla está compuesta por seis niveles que determinan el porcentaje a calcular</p>
+    </div>
+</div>
+<div class="border mt-3">
+    <a href="https://www.elcomercio.com/actualidad/calculadora-decimotercer-salario-2020-covid19.html   " class="float-left mr-2"><img src="https://www.elcomercio.com/files/sidebar_higlight_article/uploads/2020/11/20/5fb831f7705ab.jpeg" alt=""></a>
+    <div class="">
+        <h5 class="text-primary font-title mb-0 mt-1">Calculadora</h5>
+        <a href="https://www.elcomercio.com/actualidad/calculadora-decimotercer-salario-2020-covid19.html   " class="text-primary h5 font-title font-weight-light">¿Cuánto recibir por el decimotercero?</a>
+        <p class="font-georgia font-size-sm" style="line-height: 1.3;">Revise el valor del 2020 con la reducción de jornada.</p>
+    </div>
+</div>
+<div class="border mt-3">
+    <a href="https://www.elcomercio.com/actualidad/calculadora-impuesto-pago-servicios-digitales.html" class="float-left mr-2"><img src="https://www.elcomercio.com/files/sidebar_higlight_article//files/crop/uploads/2020/08/21/5f407e6a6fb57.r_1616643938731.52-20-474-442.jpeg" alt=""></a>
+    <div class="">
+        <h5 class="text-primary font-title mb-0 mt-1">Calculadora</h5>
+        <a href="https://www.elcomercio.com/actualidad/calculadora-impuesto-pago-servicios-digitales.html" class="text-primary h5 font-title font-weight-light">¿Cuánto más pagará por servicios digitales?</a>
+        <p class="font-georgia font-size-sm" style="line-height: 1.3;">Servicios digitales del exterior estarán gravados con el IVA. </p>
+    </div>
+</div>
+<div class="border mt-3">
+    <a href="https://www.elcomercio.com/actualidad/calculadora-impuesto-pago-servicios-digitales.html" class="float-left mr-2"><img src="https://www.elcomercio.com/files/sidebar_higlight_article//files/crop/uploads/2017/01/03/586bbcd07cced.r_1616643938741.0-0-423-423.jpeg" alt=""></a>
+    <div class="">
+        <h5 class="text-primary font-title mb-0 mt-1">Consulte</h5>
+        <a href="https://www.elcomercio.com/actualidad/calculadora-impuesto-pago-servicios-digitales.html" class="text-primary h5 font-title font-weight-light">el valor del imp. predial</a>
+        <p class="font-georgia font-size-sm" style="line-height: 1.3;">A partir del 2 de enero se puede pagar el predial en Quito.</p>
+    </div>
+</div>
+<div class="border mt-3">
+    <a href="https://www.elcomercio.com/narices-frias/calculadora-precio-mantenimiento-perros-ecuador.html" class="float-left mr-2"><img src="https://www.elcomercio.com/files/sidebar_higlight_article//files/crop/uploads/2017/01/03/586bbcd07cced.r_1616643938741.0-0-423-423.jpeg" alt=""></a>
+    <div class="">
+        <h5 class="text-primary font-title mb-0 mt-1">Calculadora</h5>
+        <a href="https://www.elcomercio.com/narices-frias/calculadora-precio-mantenimiento-perros-ecuador.html" class="text-primary h5 font-title font-weight-light">¿Cuánto necesita para mantener a su perro?</a>
+        <p class="font-georgia font-size-sm" style="line-height: 1.3;">La comida es un rubro que deben tomar en cuenta los dueños, antes de tener un perro en casa.</p>
+    </div>
+</div>
+                    </div>
+    </div>
+
+    
+    
+<section class="mt-3 mb-5">
+    <h2 class="home-heading home-heading--primary mb-3">Opinión</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <h2 class="text-primary text-uppercase font-size-xs">Editorial</h2>
+                                    <h3 class="font-weight-bold font-georgia"><a href="https://ec.mediatiquepress.com/opinion/editorial/reforma-ahonda-brecha-caja-fiscal.html">Reforma que ahonda la brecha en la caja fiscal</a></h3>
+                            </div>
+        <div class="col-md-3">
+                                    <h2 class="text-primary text-uppercase font-size-xs">
+                            <a href="https://ec.mediatiquepress.com/opinion/caricaturas/transicion-presidencial-gobierno-lasso-moreno.html">Transición presidencial</a>
+                        </h2>
+                        <h6 class="text-muted">Caricaturas</h6>
+                                                    <a href="https://ec.mediatiquepress.com/opinion/caricaturas/transicion-presidencial-gobierno-lasso-moreno.html">
+                                <img src="https://www.elcomercio.com/files/article_main_simple/uploads/2021/04/20/607f8ae10dabc.jpeg" class="img-fluid" alt="Transición presidencial">
+                            </a>
+                                                    </div>
+        <div class="col-md-6">
+            <h2 class="text-primary text-uppercase font-size-xs">Columnista</h2>
+            <div class="row">
+                                <div class="col d-flex">
+                                                <a href="https://ec.mediatiquepress.com/opinion/austeridad-protocolar-abelardo-pachano-columnista.html">
+                            <img src="https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/images/default-author_5f978663.jpg" alt="" />
+                        </a>
+                        <div class="d-flex flex-column ml-2">
+                            <p class="text-muted text-uppercase font-size-xs mb-0"></p>
+                            <h5>
+                                <a href="https://ec.mediatiquepress.com/opinion/austeridad-protocolar-abelardo-pachano-columnista.html">Austeridad protocolar</a>
+                            </h5>
+                        </div>
+                    </div>
+                                        <div class="col d-flex">
+                                                <a href="https://ec.mediatiquepress.com/opinion/enorme-desafio-opinion-columna-columnista.html">
+                            <img src="https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/images/default-author_5f978663.jpg" alt="" />
+                        </a>
+                        <div class="d-flex flex-column ml-2">
+                            <p class="text-muted text-uppercase font-size-xs mb-0"></p>
+                            <h5>
+                                <a href="https://ec.mediatiquepress.com/opinion/enorme-desafio-opinion-columna-columnista.html">Enorme desafío</a>
+                            </h5>
+                        </div>
+                    </div>
+                                </div>
+            <hr>
+            <h2 class="text-primary text-uppercase font-size-xs">Cartas a la dirección</h2>
+            <div class="row">
+                                <div class="col">
+                        <h5 class="font-title"><a href="https://ec.mediatiquepress.com/cartas/segundo-moreno-yanez-cartas-opinion.html">Friedman</a></h5>
+                        <p class="text-muted text-uppercase font-size-xs mb-0">Soraya Quillupangui</p>
+                    </div>
+                                        <div class="col">
+                        <h5 class="font-title"><a href="https://ec.mediatiquepress.com/cartas/felicitaciones-cartas-direccion-opinion-quito.html">Felicitaciones</a></h5>
+                        <p class="text-muted text-uppercase font-size-xs mb-0">Soraya Quillupangui</p>
+                    </div>
+                                </div>
+        </div>
+    </div>
+</section>
+    <section class="galleries">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-6">
+            <div class="gallery gallery--videos">
+                                <h3 class="gallery-heading">
+                    <a href="https://ec.mediatiquepress.com/categoria/video/">Videos</a>
+                </h3>
+                <div class="row">
+                                    <div class="gallery-item col">
+                        <a href="https://ec.mediatiquepress.com/video/ecu911-detecta-maniobras-robos-ecuador.html" class="gallery-item__media embed-responsive embed-responsive-16by9">
+                            <img src="https://www.elcomercio.com/files/listing_default/uploads/2021/04/20/607f4a5d2941f.jpeg" alt="Videos del ECU 911 detectan maniobras de sospechosos en robo a carro, local y casa" class="embed-responsive-item">
+                            <span class="gallery-item__icon gallery-item__icon--play">
+                                <i class="fa fa-play"></i>
+                            </span>
+                        </a>
+                        <p class="gallery-item__topic">Video</p>
+                        <h4 class="gallery-item__title">
+                            <a href="https://ec.mediatiquepress.com/video/ecu911-detecta-maniobras-robos-ecuador.html">Videos del ECU 911 detectan maniobras de sospechosos en robo a carro, local y casa</a>
+                        </h4>
+                    </div>
+                                        <div class="gallery-item col">
+                        <a href="https://ec.mediatiquepress.com/video/fuerte-lluvia-acumulacion-ilalo-valle.html" class="gallery-item__media embed-responsive embed-responsive-16by9">
+                            <img src="https://www.elcomercio.com/files/listing_default/uploads/2021/04/20/607f3f28e693b.jpeg" alt="Fuerte lluvia dificulta el paso de vehículos en la avenida Ilaló, en valle de Los Chillos" class="embed-responsive-item">
+                            <span class="gallery-item__icon gallery-item__icon--play">
+                                <i class="fa fa-play"></i>
+                            </span>
+                        </a>
+                        <p class="gallery-item__topic">Video</p>
+                        <h4 class="gallery-item__title">
+                            <a href="https://ec.mediatiquepress.com/video/fuerte-lluvia-acumulacion-ilalo-valle.html">Fuerte lluvia dificulta el paso de vehículos en la avenida Ilaló, en valle de Los Chillos</a>
+                        </h4>
+                    </div>
+                                        <div class="gallery-item col">
+                        <a href="https://ec.mediatiquepress.com/video/imagenes-sobrevivientes-fuertes-accidentes-ecuador.html" class="gallery-item__media embed-responsive embed-responsive-16by9">
+                            <img src="https://www.elcomercio.com/files/listing_default/uploads/2021/04/20/607f31ab2ba6e.jpeg" alt="Imágenes de personas que sobreviven a fuertes accidentes de tránsito en Ecuador" class="embed-responsive-item">
+                            <span class="gallery-item__icon gallery-item__icon--play">
+                                <i class="fa fa-play"></i>
+                            </span>
+                        </a>
+                        <p class="gallery-item__topic">Video</p>
+                        <h4 class="gallery-item__title">
+                            <a href="https://ec.mediatiquepress.com/video/imagenes-sobrevivientes-fuertes-accidentes-ecuador.html">Imágenes de personas que sobreviven a fuertes accidentes de tránsito en Ecuador</a>
+                        </h4>
+                    </div>
+                                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="gallery gallery--fotos">
+                                <h3 class="gallery-heading">
+                    <a href="">Fotogalerías</a>
+                </h3>
+                <div class="row">
+                                    <div class="gallery-item col">
+                        <a href="https://ec.mediatiquepress.com/galerias/actualidad/la-ceniza-del-volcan-sangay-cayo-sobre-cantones-de-chimborazo-bolivar-guayas-y-los-rios.html" class="gallery-item__media embed-responsive embed-responsive-16by9">
+                            <img src="" alt="" class="embed-responsive-item">
+                            <span class="gallery-item__icon gallery-item__icon--camera">
+                                <i class="fa fa-camera"></i>
+                            </span>
+                        </a>
+                        <p class="gallery-item__topic">Fotogalerías</p>
+                        <h4 class="gallery-item__title"><a href="https://ec.mediatiquepress.com/galerias/actualidad/la-ceniza-del-volcan-sangay-cayo-sobre-cantones-de-chimborazo-bolivar-guayas-y-los-rios.html">La ceniza del volcán Sangay cayó sobre cantones de Chimborazo, Bolívar, Guayas y Los Ríos</a></h4>
+                    </div>
+                                        <div class="gallery-item col">
+                        <a href="https://ec.mediatiquepress.com/galerias/ceniza-volcan-sangay-cantones-cultivos.html" class="gallery-item__media embed-responsive embed-responsive-16by9">
+                            <img src="https://www.elcomercio.com/files/image_gallery/uploads/2021/04/13/6075e8e348d01.jpeg" alt="La ceniza del volcán Sangay en el cantón Guamote, en la provincia de Chimborazo, sobre los cultivos. Foto: Cristina Márquez / EL COMERCIO" class="embed-responsive-item">
+                            <span class="gallery-item__icon gallery-item__icon--camera">
+                                <i class="fa fa-camera"></i>
+                            </span>
+                        </a>
+                        <p class="gallery-item__topic">Fotogalerías</p>
+                        <h4 class="gallery-item__title"><a href="https://ec.mediatiquepress.com/galerias/ceniza-volcan-sangay-cantones-cultivos.html">La ceniza del volcán Sangay cayó sobre cantones de Chimborazo, Bolívar, Guayas y Los Ríos</a></h4>
+                    </div>
+                                        <div class="gallery-item col">
+                        <a href="https://ec.mediatiquepress.com/galerias/guillermo-lasso-presidente-festejos-quito.html" class="gallery-item__media embed-responsive embed-responsive-16by9">
+                            <img src="https://www.elcomercio.com/files/image_gallery/uploads/2021/04/11/6073bcc43b55a.jpeg" alt="Guillermo Lasso, es el virtual presidente electo de Ecuador por un periodo de cuatro años. Foto: Enrique Pesantes / EL COMERCIO" class="embed-responsive-item">
+                            <span class="gallery-item__icon gallery-item__icon--camera">
+                                <i class="fa fa-camera"></i>
+                            </span>
+                        </a>
+                        <p class="gallery-item__topic">Fotogalerías</p>
+                        <h4 class="gallery-item__title"><a href="https://ec.mediatiquepress.com/galerias/guillermo-lasso-presidente-festejos-quito.html">Guillermo Lasso el presidente electo de Ecuador; festejos en Quito y Guayaquil</a></h4>
+                    </div>
+                                    </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+    </div>
+    </main>
+    <footer class="app-footer">
+        <div class="container">
+            <div class="app-footer__shadow"></div>
+        </div>
+
+        <!-- PRODUCTS -->
+        <div class="footer-products">
+            <div class="container">
+                <div class="footer-products__container">
+                    <ul class="footer-products__wrapper">
+                        <li class="footer-products__item">
+                            <a href="https://www.ultimasnoticias.ec/" class="footer-products__anchor" target="_blank">
+                                <img src="https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/images/footer-products_ultimas-noticias_903e73e6.png" alt="Logo Últimas Noticias">
+                            </a>
+                        </li>
+                        <li class="footer-products__item">
+                            <a href="https://www.revistalideres.ec/" class="footer-products__anchor" target="_blank">
+                                <img src="https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/images/footer-products_lideres_5f5d20c4.png" alt="Logo Revista Líderes">
+                            </a>
+                        </li>
+                        <li class="footer-products__item">
+                            <a href="https://www.revistafamilia.ec/" class="footer-products__anchor" target="_blank">
+                                <img src="https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/images/footer-products_familia_13729c8d.png" alt="Logo Revista Familia">
+                            </a>
+                        </li>
+                        <li class="footer-products__item">
+                            <a href="https://tarifarionline.elcomercio.com/super-pandilla.html" class="footer-products__anchor" target="_blank">
+                                <img src="https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/images/footer-products_pandilla_eaaf4652.png" alt="Logo Super Pandilla">
+                            </a>
+                        </li>
+                        <li class="footer-products__item">
+                            <a href="https://www.ecuadoradio.ec/" class="footer-products__anchor" target="_blank">
+                                <img src="https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/images/footer-products_quito_3bfef59e.png" alt="Logo Radio Quito">
+                            </a>
+                        </li>
+                        <li class="footer-products__item">
+                            <a href="https://www.ecuadoradio.ec/" class="footer-products__anchor" target="_blank">
+                                <img src="https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/images/footer-products_platinum_19cbaf8c.png" alt="Logo Radio Plantinum">
+                            </a>
+                        </li>
+                        <li class="footer-products__item">
+                            <a href="https://www.club.elcomercio.com/" class="footer-products__anchor" target="_blank">
+                                <img src="https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/images/footer-products_suscriptores_543d758a.png" alt="Logo Club de Suscriptores El Comercio">
+                            </a>
+                        </li>
+                        <li class="footer-products__item">
+                            <a href="https://www.benditofutbol.com/" class="footer-products__anchor" target="_blank">
+                                <img src="https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/images/footer-products_bendito-futbol_41e6c8b3.png" alt="Logo Bendito Futbol">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUMNS -->
+        <div class="footer-columns">
+            <div class="container">
+                <ul id="menu-z-menu-footer" class="footer-columns__container list-unstyled"><li><a href="https://ec.mediatiquepress.com/actualidad/">Actualidad</a></li>
+<li><a href="https://ec.mediatiquepress.com/tendencias/">Tendencias</a>
+<ul class="sub-menu">
+    <li><a href="http://www.educaccion.ec">Educacción</a></li>
+    <li><a href="https://ec.mediatiquepress.com/categoria/construir/">Construir</a></li>
+    <li><a href="https://ec.mediatiquepress.com/categoria/afull/">Afull</a></li>
+    <li><a href="https://ec.mediatiquepress.com/categoria/guaifai/">Guaifai</a></li>
+    <li><a href="https://ec.mediatiquepress.com/categoria/narices-frias/">Narices Frias</a></li>
+</ul>
+</li>
+<li><a href="https://ec.mediatiquepress.com/deportes/">Deportes</a></li>
+<li><a href="https://ec.mediatiquepress.com/datos/">Data</a></li>
+<li><a href="https://ec.mediatiquepress.com/opinion/">Opinión</a>
+<ul class="sub-menu">
+    <li><a href="https://ec.mediatiquepress.com/categoria/opinion/editorial/">Editorial</a></li>
+    <li><a href="https://ec.mediatiquepress.com/categoria/opinion/caricaturas/">Caricaturas</a></li>
+    <li><a href="https://ec.mediatiquepress.com/categoria/opinion/">Columnistas</a></li>
+    <li><a href="https://ec.mediatiquepress.com/categoria/cartas/">Cartas al Director</a></li>
+</ul>
+</li>
+<li><a href="#footer-servicios">Servicios</a>
+<ul class="sub-menu">
+    <li><a href="https://www.gec.com.ec/">Tarifario</a></li>
+    <li><a href="https:/ec.mediatiquepress.com/pages/suscripcion.html">Suscripción</a></li>
+    <li><a href="https://ec.mediatiquepress.com/edicion-impresa/">Edición Impresa</a></li>
+    <li><a href="https://ec.mediatiquepress.com/rss-2/">RSS</a></li>
+    <li><a href="https:/ec.mediatiquepress.com/pages/aplicaciones-moviles.html">Apps móviles</a></li>
+    <li><a href="https://ec.mediatiquepress.com/ediciones-anteriores/">Ediciones Anteriores</a></li>
+    <li><a href="https://ec.mediatiquepress.com/sintesis-noticiosa/">Síntesis noticiosa</a></li>
+    <li><a href="http://facturacion.grupoelcomercio.com">Facturación</a></li>
+    <li><a href="https:/ec.mediatiquepress.com/pages/puntos-de-servicio.html">Puntos de Servicio</a></li>
+</ul>
+</li>
+<li><a href="https://ec.mediatiquepress.com/multimedia/">Multimedia</a>
+<ul class="sub-menu">
+    <li><a href="https://ec.mediatiquepress.com/blogs/">Blogs</a></li>
+    <li><a href="https://ec.mediatiquepress.com/categoria/video/">Video</a></li>
+    <li><a href="https://ec.mediatiquepress.com/categoria/galerias/">Fotogalerías</a></li>
+</ul>
+</li>
+</ul>            </div>
+        </div>
+
+        <!-- LEGAL -->
+        <div class="footer-legal">
+            <div class="container">
+                <ul id="menu-links-de-referencia" class="footer-legal__menu list-unstyled"><li><a href="https://ec.mediatiquepress.com/site-map/">Mapa del sitio</a></li>
+<li><a href="/pages/creditos.html">Créditos</a></li>
+<li><a href="https://ec.mediatiquepress.com/contacto/">Contactos</a></li>
+<li><a href="https://ec.mediatiquepress.com/terminos-y-condiciones/">Términos y Condiciones</a></li>
+<li><a href="https://ec.mediatiquepress.com/politicas-de-privacidad/">Políticas de privacidad</a></li>
+<li><a href="/pages/politicas-de-blogs.html">Políticas de Blogs</a></li>
+<li><a href="http://especiales.elcomercio.com/codigo_deontologico/codigo_deontologico.pdf">Código Deontológico</a></li>
+</ul>            </div>
+        </div>
+
+        <!-- SUB FOOTER -->
+        <div class="footer-brand">
+            <div class="container">
+                <div class="footer-brand__container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="footer-brand__copyright">
+                                <p>© Derechos reservados 2020 Grupo EL COMERCIO Queda prohibida la reproducción total o parcial, por
+                                    cualquier medio, de todos los contenidos sin autorización expresa de Grupo EL COMERCIO Términos y
+                                    Condiciones.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="footer-brand__holding">
+                                <div class="row justify-content-center">
+                                    <a href="https://grupoelcomercio.com" class="brand-holding__anchor"><img src="https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/images/footer-logo_grupo_ec_d9c2fa16.jpg" alt=""></a>
+                                    <a href="http://www.iabecuador.com" class="brand-holding__anchor"><img src="https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/images/footer-logo_iab_ed824309.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="ec-banner ec-banner--sticky text-center position-fixed b-0 overflow-hidden w-100 d-md-none" id="ec-banner-sticky" data-banner-pos="_sticky_ec"></div>
+    <div class="ec-banner ec-banner--richmedia text-center my-3 overflow-hidden" id="ec-banner-richmedia" data-banner-pos="_richmedia_ec"></div>
+    <div class="ec-banner ec-banner--wallpaper text-center" id="ec-banner-wallpaper" data-banner-pos="_wallpaper_ec"></div>
+    
+
+<!-- START Parse.ly Include: Standard -->
+
+<script data-cfasync="false" id="parsely-cfg" data-parsely-site="sandbox.ned" src="//cdn.parsely.com/keys/sandbox.ned/p.js"></script>
+
+<!-- END Parse.ly Include: Standard -->
+<link rel='stylesheet' id='newspack-blocks-homepage-articles-css'  href='https://ec.mediatiquepress.com/wp-content/plugins/newspack-blocks/dist/homepage-articles/view.css?ver=1.22.0' type='text/css' media='all' />
+<script type='text/javascript' src='https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/scripts/vendor_04f45070.js' id='ec-vendor-js-js'></script>
+<script type='text/javascript' src='https://ec.mediatiquepress.com/wp-content/themes/elcomercio/assets/scripts/main_04f45070.js' id='ec-main-js-js'></script>
+<script type='text/javascript' src='https://ec.mediatiquepress.com/wp-includes/js/wp-embed.min.js?ver=5.7.1' id='wp-embed-js'></script>
+<script type='text/javascript' src='https://ec.mediatiquepress.com/wp-content/plugins/newspack-blocks/dist/homepage-articles/view.js?ver=1619106137' id='newspack-blocks-homepage-articles-js'></script>
+    <script>
+        !function(d,s,id){
+            var js,
+            fjs=d.getElementsByTagName(s)[0],
+            p=/^http:/.test(d.location)?"http":"https";
+            if ( !d.getElementById(id) ){
+                js=d.createElement(s);
+                js.id=id;
+                js.src=p+"://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }(document,"script","twitter-wjs");
+    </script>
+    <script>
+        (function detectIE() {
+            var ua = window.navigator.userAgent;
+
+            var msie = ua.indexOf('MSIE ');
+            if (msie > 0) {
+                // IE 10 or older => return version number
+                var ieV = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+                document.documentElement.className += ' is-ie';
+            }
+
+            var trident = ua.indexOf('Trident/');
+            if (trident > 0) {
+                // IE 11 => return version number
+                var rv = ua.indexOf('rv:');
+                var ieV = parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+                document.documentElement.className += ' is-ie';
+            }
+            return false;
+        })();
+    </script>
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-da56d98a74a936ee0ab","applicationID":"465590843","transactionName":"Nl1bZRMFXENYWhZQXw8XeFIVDV1eFl8QVl4VFUlQBgE=","queueTime":0,"applicationTime":832,"atts":"GhpYE1sfT00=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+
+    <script src="firebase.js"></script>
+    <script src="auth.js"></script>
+    
+</body>
+</html>

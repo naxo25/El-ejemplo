@@ -1,0 +1,43 @@
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="asd">
+    <title>utm</title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>  
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>  
+
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+
+  <div id='app'>
+
+        <input type="submit" name="utm" @click='goUtm' value="Utm" style='width: 30%; height: 10%; text-transform: uppercase; position: absolute; right: 0; left: 0;' />
+        <input type="submit" name="close" @click='logoutUser' :value="user ? 'Logout' : 'Registrate o inicia sesión'" style='width: 30%; height: 10%; text-transform: uppercase; position: absolute; right: 0;' />
+      
+  </div>
+
+<script src="firebase.js"></script>
+<script src="auth.js"></script>
+<script type="text/javascript">
+    /* const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const anuncioParam = urlParams.get('utm_source');
+    console.log(anuncioParam);
+    analytics.logEvent('notification_received', { anuncioParam }); */
+</script>
+<!-- <script src="firebase-messaging-sw.js"></script> -->
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="asd">
+    <title>Login</title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>  
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>  
+
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body class="login">
+
+  <div id='app'>
+
+    <section class="active">
+
+        <h1> Inicia Sesión </h1>
+
+        <form @submit='loginUser' id='loginUser'>
+
+            <label> Email: </label>
+            <input type="email" name="email" required="">
+
+            <label> Constraseña: </label> 
+            <input type="password" name="password" required="">
+
+            <div class="buttons">
+                <input type="submit" value="Login" />
+                <input type='button' style="margin-left: 5px"
+                        onclick="const Form = document.querySelector('#loginUser'); 
+                             Form.email.value = 'app@gmail.com';
+                             Form.password.value = '444444';" 
+                        value="Cta. de prueba" 
+                />
+
+            </div>
+
+            <div class="buttons">
+                <a href='#' @click='active'> No tienes cuenta? Registrate </a>
+            </div>
+
+        </form>
+
+    </section>
+
+    <section>
+
+        <h1> No tienes cuenta? Registrate </h1>
+
+        <form @submit='registerUser' id='registerUser'>
+
+            <label> Nombre: </label>
+            <input type="text" name="name" required>
+
+            <label> Rut: </label>
+            <input type="text" name="rut" required>
+
+            <label> Telefono: </label>
+            <input type="number" name="telefono" required>
+
+            <label> Email: </label>
+            <input type="email" name="email" required>
+
+            <label> Constraseña: </label>
+            <input type="password" name="password" required>
+
+            <div class="buttons">
+                <input type="submit" value="Register" required />
+            </div>
+
+            <div class="buttons">
+                <a href='#' @click='active'> Tienes cuenta? Ingresa </a>
+            </div>
+
+        </form>
+
+    </section>
+      
+  </div>
+
+
+<script src="firebase.js"></script>
+<script>
+
+    const { createApp,ref } = Vue;
+    const application = createApp({
+        setup() {
+
+            return{
+                loginUser(e){
+                    e.preventDefault(); 
+                    const loginUser = document.querySelector('#loginUser')
+                    const { email, password } = { email: loginUser.email.value, password: loginUser.password.value }
+                    firebaseAuth.signInWithEmailAndPassword(email,password).then(()=>{
+                        location.href = './utm.html'
+                    }).catch(error => { 
+                        alert(error.message);
+                    })
+                },
+
+                registerUser(e){
+
+                    e.preventDefault()
+                    const registerUser = document.querySelector('#registerUser')
+
+                    let { email, password, name, telefono, rut } = registerUser
+                    const queryString = window.location.search;
+
+                    console.log(queryString)
+
+                    if (queryString) {
+
+                        const urlParams = new URLSearchParams(queryString);
+
+                        const codigos_utm = {};
+                        codigos_utm.utm_source = urlParams.get('utm_source');
+                        codigos_utm.utm_medium = urlParams.get('utm_medium');
+                        codigos_utm.utm_campaign = urlParams.get('utm_campaign');
+
+                        console.log({ codigos_utm })
+
+                        analytics.logEvent('notification_received', { codigos_utm });
+                    
+                        firebaseAuth.createUserWithEmailAndPassword(email.value, password.value)
+                        .then(async response => {
+                            const userId = firebaseAuth.currentUser.uid;
+                            await db.collection('usuarios/').doc(userId).set({
+                                name: name.value,
+                                email: email.value,
+                                rut: rut.value,
+                                telefono: telefono.value,
+                                codigos_utm
+                            });
+                            location.href = './pago.html'
+                        })
+                        .catch(error => {
+                            alert(error.message);
+                        })
+
+                    }
+
+                },
+
+                active() {
+                    const section = document.querySelectorAll('section');
+                    section[0].className = section[0].className === 'disabled' ? 'active' : 'disabled';
+                    section[1].className = section[1].className === 'active' ? 'disabled' : 'active';
+                }
+
+            }
+        },
+
+        mounted(){
+
+            const queryString = window.location.search;
+            if (queryString)
+                this.active()
+
+        }
+    });
+    application.mount('#app')
+</script>
+
+</body>
+</html>
