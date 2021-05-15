@@ -47,7 +47,7 @@
             </div>
 
             <div class="buttons">
-                <a href='#' @click='active'> No tienes cuenta? Registrate </a>
+                <a href='#' @click='change'> No tienes cuenta? Registrate </a>
             </div>
 
         </form>
@@ -80,7 +80,7 @@
             </div>
 
             <div class="buttons">
-                <a href='#' @click='active'> Tienes cuenta? Ingresa </a>
+                <a href='#' @click='change'> Tienes cuenta? Ingresa </a>
             </div>
 
         </form>
@@ -115,8 +115,48 @@
                     const registerUser = document.querySelector('#registerUser')
 
                     let { email, password, name, telefono, rut } = registerUser
-                    const queryString = window.location.search;
 
+                    const Params = {
+                            name: name.value,
+                            email: email.value,
+                            rut: rut.value,
+                            telefono: telefono.value
+                        }
+
+                    if (localStorage.codigos_utm) {
+                        Params.codigos_utm = JSON.parse(localStorage.codigos_utm);
+                        console.log(JSON.parse(localStorage.codigos_utm))
+                    }
+                    console.log('Front ', Params);
+
+                    /* Desde aca es como llegarían al Backend, si no vienen del front se crean en la api */
+                    if (!Params.codigos_utm)
+                        Params.codigos_utm = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_landing'];
+                    console.log(Params);
+
+                    // firebaseAuth.createUserWithEmailAndPassword(email.value, password.value)
+                    // .then(async response => {
+                    //     await analytics.logEvent('notification_received', { codigos_utm: Params.codigos_utm });
+                    //     const userId = firebaseAuth.currentUser.uid;
+                    //     await db.collection('usuarios/').doc(userId).set(
+                    //         Params
+                    //     );
+                    //     location.href = './pago.html'
+                    // })
+                    // .catch(error => {
+                    //     alert(error.message);
+                    // })
+
+                },
+
+                change() {
+                    const section = document.querySelectorAll('section');
+                    section[0].className = section[0].className === 'disabled' ? 'active' : 'disabled';
+                    section[1].className = section[1].className === 'active' ? 'disabled' : 'active';
+                },
+                utm_active() {
+
+                    const queryString = window.location.search;
                     console.log(queryString)
 
                     if (queryString) {
@@ -124,38 +164,30 @@
                         const urlParams = new URLSearchParams(queryString);
 
                         const codigos_utm = {};
-                        codigos_utm.utm_source = urlParams.get('utm_source');
-                        codigos_utm.utm_medium = urlParams.get('utm_medium');
-                        codigos_utm.utm_campaign = urlParams.get('utm_campaign');
+                        codigos_utm.utm_source = urlParams.get('utm_source') || 'none';
+                        codigos_utm.utm_medium = urlParams.get('utm_medium') || 'none';
+                        codigos_utm.utm_campaign = urlParams.get('utm_campaign') || 'none';
+                        codigos_utm.utm_landing = urlParams.get('utm_landing') || 'none';
 
-                        console.log({ codigos_utm })
+                        const utm_fist_time = new Date().getTime();
 
-                        analytics.logEvent('notification_received', { codigos_utm });
-                    
-                        firebaseAuth.createUserWithEmailAndPassword(email.value, password.value)
-                        .then(async response => {
-                            const userId = firebaseAuth.currentUser.uid;
-                            await db.collection('usuarios/').doc(userId).set({
-                                name: name.value,
-                                email: email.value,
-                                rut: rut.value,
-                                telefono: telefono.value,
-                                codigos_utm
-                            });
-                            location.href = './pago.html'
-                        })
-                        .catch(error => {
-                            alert(error.message);
-                        })
+                        if (!localStorage.codigos_utm) {
+                            localStorage.codigos_utm = JSON.stringify(codigos_utm);
+                            localStorage.utm_time = utm_fist_time;
+                        }
+
+                        console.log( JSON.parse(localStorage.codigos_utm), localStorage.utm_time )
+
+                        const utm_time = Number(localStorage.utm_time) + 86400000,
+                              now  = Number(new Date().getTime()),
+                              dia  = 86400000; // en js
+                        console.log({ utm_time, now });
+
+                        if (utm_time + dia < now) 
+                            console.log('Paso un dia, aqui caducan')
 
                     }
 
-                },
-
-                active() {
-                    const section = document.querySelectorAll('section');
-                    section[0].className = section[0].className === 'disabled' ? 'active' : 'disabled';
-                    section[1].className = section[1].className === 'active' ? 'disabled' : 'active';
                 }
 
             }
@@ -164,8 +196,10 @@
         mounted(){
 
             const queryString = window.location.search;
-            if (queryString)
-                this.active()
+            if (queryString) {
+                this.change();
+                this.utm_active()
+            }
 
         }
     });
