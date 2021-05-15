@@ -47,7 +47,7 @@
             </div>
 
             <div class="buttons">
-                <a href='#' @click='change'> No tienes cuenta? Registrate </a>
+                <a href='#' @click='changeAuth'> No tienes cuenta? Registrate </a>
             </div>
 
         </form>
@@ -80,7 +80,7 @@
             </div>
 
             <div class="buttons">
-                <a href='#' @click='change'> Tienes cuenta? Ingresa </a>
+                <a href='#' @click='changeAuth'> Tienes cuenta? Ingresa </a>
             </div>
 
         </form>
@@ -98,6 +98,7 @@
         setup() {
 
             return{
+
                 loginUser(e){
                     e.preventDefault(); 
                     const loginUser = document.querySelector('#loginUser')
@@ -129,32 +130,38 @@
                     }
                     console.log('Front ', Params);
 
-                    /* Desde aca es como llegarían al Backend, si no vienen del front se crean en la api */
+                    /* Api Backend */
                     if (!Params.codigos_utm)
                         Params.codigos_utm = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_landing'];
-                    console.log(Params);
+                    console.log('Api', Params);
 
-                    // firebaseAuth.createUserWithEmailAndPassword(email.value, password.value)
-                    // .then(async response => {
-                    //     await analytics.logEvent('notification_received', { codigos_utm: Params.codigos_utm });
-                    //     const userId = firebaseAuth.currentUser.uid;
-                    //     await db.collection('usuarios/').doc(userId).set(
-                    //         Params
-                    //     );
-                    //     location.href = './pago.html'
-                    // })
-                    // .catch(error => {
-                    //     alert(error.message);
-                    // })
+                    firebaseAuth.createUserWithEmailAndPassword(email.value, password.value)
+                    .then(async response => {
+                        await analytics.logEvent('notification_received', { codigos_utm: Params.codigos_utm });
+                        const userId = firebaseAuth.currentUser.uid;
+                        await db.collection('usuarios/').doc(userId).set(
+                            Params
+                        );
+                        //location.href = './pago.html'
+                        alert('push!')
+                    })
+                    .catch(error => {
+                        alert(error.message);
+                    })
 
                 },
 
-                change() {
+                changeAuth() {
                     const section = document.querySelectorAll('section');
                     section[0].className = section[0].className === 'disabled' ? 'active' : 'disabled';
                     section[1].className = section[1].className === 'active' ? 'disabled' : 'active';
                 },
+
                 utm_active() {
+
+                    const pseudoSanitize = (value) => {
+                        return value && value.replace(/\W\S/g, '')
+                      }
 
                     const queryString = window.location.search;
                     console.log(queryString)
@@ -164,10 +171,10 @@
                         const urlParams = new URLSearchParams(queryString);
 
                         const codigos_utm = {};
-                        codigos_utm.utm_source = urlParams.get('utm_source') || 'none';
-                        codigos_utm.utm_medium = urlParams.get('utm_medium') || 'none';
-                        codigos_utm.utm_campaign = urlParams.get('utm_campaign') || 'none';
-                        codigos_utm.utm_landing = urlParams.get('utm_landing') || 'none';
+                        codigos_utm.utm_source = pseudoSanitize(urlParams.get('utm_source')) || 'none';
+                        codigos_utm.utm_medium = pseudoSanitize(urlParams.get('utm_medium')) || 'none';
+                        codigos_utm.utm_campaign = pseudoSanitize(urlParams.get('utm_campaign')) || 'none';
+                        codigos_utm.utm_landing = pseudoSanitize(urlParams.get('utm_landing')) || 'none';
 
                         const utm_fist_time = new Date().getTime();
 
@@ -176,9 +183,9 @@
                             localStorage.utm_time = utm_fist_time;
                         }
 
-                        console.log( JSON.parse(localStorage.codigos_utm), localStorage.utm_time )
+                        console.log( JSON.parse(localStorage.codigos_utm), localStorage.utm_time, codigos_utm )
 
-                        const utm_time = Number(localStorage.utm_time) + 86400000,
+                        const utm_time = Number(localStorage.utm_time),
                               now  = Number(new Date().getTime()),
                               dia  = 86400000; // en js
                         console.log({ utm_time, now });
@@ -197,7 +204,7 @@
 
             const queryString = window.location.search;
             if (queryString) {
-                this.change();
+                this.changeAuth();
                 this.utm_active()
             }
 
